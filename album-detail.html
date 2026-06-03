@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>جزئیات آلبوم | آمادای گشت</title>
+    <link rel="stylesheet" href="css/album-detail.css">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+</head>
+
+<body>
+    <nav class="custom-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-compass"></i> آمادای گشت</a>
+            <div class="navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link-custom" href="index.html">خانه</a></li>
+                    <li class="nav-item"><a class="nav-link-custom" href="#">گالری</a></li>
+                    <li class="nav-item"><a class="nav-link-custom" href="#">اطلاعیه</a></li>
+                    <li class="nav-item"><a class="nav-link-custom" href="#">سفرها</a></li>
+                </ul>
+            </div>
+            <a class="btn-reserve" href="#">رزرو</a>
+            <div class="burger-menu" id="burgerMenu"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <section class="album-detail-section">
+        <div class="container">
+            <a href="app.html" class="back-button"><i class="fas fa-arrow-right"></i> بازگشت به صفحه اصلی</a>
+            <div id="albumDetailContent"></div>
+        </div>
+    </section>
+
+    <div class="lightbox-modal" id="lightboxModal">
+        <div class="close-lightbox"><i class="fas fa-times"></i></div>
+        <img id="lightboxImage" src="" alt="">
+    </div>
+
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/click-animation.js"></script>
+    <script src="js/album-detail.js"></script>
+</body>
+
+</html>

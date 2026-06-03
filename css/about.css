@@ -1,0 +1,421 @@
+ /* ==================== صفحه درباره ما ==================== */
+ .about-page {
+     padding: 120px 0 4rem;
+     background: #0a0f14;
+     min-height: 100vh;
+ }
+
+ /* هدر صفحه */
+ .about-header {
+    width: 100%;
+     text-align: center;
+     margin-bottom: 3rem;
+ }
+
+ .about-badge {
+     display: inline-block;
+     background: rgba(55, 121, 255, 0.15);
+     padding: 0.4rem 1.2rem;
+     border-radius: 40px;
+     font-size: 0.8rem;
+     font-weight: 600;
+     color: rgba(55, 121, 255, 0.85);
+     margin-bottom: 1rem;
+ }
+
+ .about-header h1 {
+     font-size: 2.5rem;
+     font-weight: 800;
+     color: #ffffff;
+     margin-bottom: 0.8rem;
+ }
+
+ .about-header h1 span {
+     background: linear-gradient(135deg, rgba(55, 121, 255, 0.85), rgba(35, 90, 200, 0.9));
+     -webkit-background-clip: text;
+     background-clip: text;
+     -webkit-text-fill-color: transparent;
+ }
+
+ .about-header p {
+     color: #9aa9b8;
+     font-size: 1rem;
+     max-width: 700px;
+     margin: 0 auto;
+ }
+
+ /* ==================== بخش داستان ما ==================== */
+ .story-section {
+     background: linear-gradient(135deg, #141b24, #0f151c);
+     border-radius: 32px;
+     padding: 2.5rem;
+     margin-bottom: 3rem;
+     border: 1px solid rgba(55, 121, 255, 0.15);
+ }
+
+ .story-grid {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     gap: 2rem;
+     align-items: center;
+ }
+
+ .story-text h2 {
+     color: #ffffff;
+     font-size: 1.8rem;
+     font-weight: 800;
+     margin-bottom: 1rem;
+ }
+
+ .story-text h2 i {
+     color: rgba(55, 121, 255, 0.85);
+     margin-left: 10px;
+ }
+
+ .story-text p {
+     color: #cbd5e1;
+     font-size: 0.95rem;
+     line-height: 1.8;
+     margin-bottom: 1rem;
+ }
+
+ .story-visual {
+     text-align: center;
+     background: rgba(26, 37, 48, 0.5);
+     border-radius: 24px;
+     padding: 2rem;
+ }
+
+ .story-visual i {
+     font-size: 5rem;
+     color: rgba(55, 121, 255, 0.85);
+     margin-bottom: 1rem;
+ }
+
+ .story-visual h3 {
+     color: #ffffff;
+     font-size: 1.2rem;
+     margin-bottom: 0.5rem;
+ }
+
+ .story-visual p {
+     color: #9aa9b8;
+     font-size: 0.85rem;
+ }
+
+ /* ==================== آمار و ارقام ==================== */
+ .stats-section {
+     width: 100%;
+     display: grid;
+     grid-template-columns: repeat(4, 1fr);
+     gap: 1.5rem;
+     margin-bottom: 3rem;
+ }
+
+ .stat-card {
+     background: #141b24;
+     border-radius: 24px;
+     padding: 1.5rem;
+     text-align: center;
+     border: 1px solid rgba(255, 255, 255, 0.08);
+     transition: all 0.3s ease;
+ }
+
+ .stat-card:hover {
+     transform: translateY(-5px);
+     border-color: rgba(55, 121, 255, 0.3);
+ }
+
+ .stat-card i {
+     font-size: 2.5rem;
+     color: rgba(55, 121, 255, 0.85);
+     margin-bottom: 0.8rem;
+ }
+
+ .stat-card h3 {
+     font-size: 2rem;
+     font-weight: 800;
+     color: #ffffff;
+     margin-bottom: 0.3rem;
+ }
+
+ .stat-card p {
+     color: #9aa9b8;
+     font-size: 0.85rem;
+ }
+
+ /* ==================== ارزش‌های ما ==================== */
+ .values-section {
+     margin-bottom: 3rem;
+ }
+
+ .section-title {
+     text-align: center;
+     margin-bottom: 2rem;
+ }
+
+ .section-title h2 {
+     font-size: 1.8rem;
+     font-weight: 800;
+     color: #ffffff;
+     margin-bottom: 0.5rem;
+ }
+
+ .section-title h2 span {
+     background: linear-gradient(135deg, rgba(55, 121, 255, 0.85), rgba(35, 90, 200, 0.9));
+     -webkit-background-clip: text;
+     background-clip: text;
+     -webkit-text-fill-color: transparent;
+ }
+
+ .section-title p {
+     color: #9aa9b8;
+     font-size: 0.9rem;
+ }
+
+ .values-grid {
+     display: grid;
+     grid-template-columns: repeat(4, 1fr);
+     gap: 1.5rem;
+ }
+
+ .value-card {
+     background: #141b24;
+     border-radius: 24px;
+     padding: 1.5rem;
+     text-align: center;
+     border: 1px solid rgba(255, 255, 255, 0.08);
+     transition: all 0.3s ease;
+ }
+
+ .value-card:hover {
+     transform: translateY(-5px);
+     border-color: rgba(55, 121, 255, 0.3);
+ }
+
+ .value-icon {
+     width: 70px;
+     height: 70px;
+     background: rgba(55, 121, 255, 0.15);
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin: 0 auto 1rem;
+ }
+
+ .value-icon i {
+     font-size: 2rem;
+     color: rgba(55, 121, 255, 0.85);
+ }
+
+ .value-card h3 {
+     color: #ffffff;
+     font-size: 1.1rem;
+     margin-bottom: 0.5rem;
+ }
+
+ .value-card p {
+     color: #9aa9b8;
+     font-size: 0.8rem;
+     line-height: 1.6;
+ }
+
+ /* ==================== چرا ما ==================== */
+ .why-us-section {
+     width: 100%;
+     background: linear-gradient(135deg, #141b24, #0f151c);
+     border-radius: 32px;
+     padding: 2.5rem;
+     margin-bottom: 3rem;
+     border: 1px solid rgba(55, 121, 255, 0.15);
+ }
+
+ .why-us-grid {
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     gap: 2rem;
+ }
+
+ .why-us-item {
+     text-align: center;
+ }
+
+ .why-us-item i {
+     font-size: 2.5rem;
+     color: rgba(55, 121, 255, 0.85);
+     margin-bottom: 1rem;
+ }
+
+ .why-us-item h3 {
+     color: #ffffff;
+     font-size: 1.1rem;
+     margin-bottom: 0.5rem;
+ }
+
+ .why-us-item p {
+     color: #9aa9b8;
+     font-size: 0.85rem;
+     line-height: 1.6;
+ }
+
+ /* ==================== دعوت به اقدام ==================== */
+ .cta-section {
+     width: 100%;
+     background: linear-gradient(135deg, rgba(55, 121, 255, 0.1), rgba(35, 90, 200, 0.05));
+     border-radius: 32px;
+     padding: 3rem;
+     text-align: center;
+     border: 1px solid rgba(55, 121, 255, 0.2);
+ }
+
+ .cta-section h2 {
+     font-size: 1.8rem;
+     font-weight: 800;
+     color: #ffffff;
+     margin-bottom: 0.8rem;
+ }
+
+ .cta-section p {
+     color: #9aa9b8;
+     font-size: 0.95rem;
+     margin-bottom: 1.5rem;
+ }
+
+ .cta-buttons {
+     display: flex;
+     justify-content: center;
+     gap: 1rem;
+     flex-wrap: wrap;
+ }
+
+ .cta-btn {
+     padding: 0.8rem 2rem;
+     border-radius: 40px;
+     font-weight: 600;
+     text-decoration: none;
+     transition: 0.3s;
+     display: inline-flex;
+     align-items: center;
+     gap: 8px;
+ }
+
+ .cta-btn-primary {
+     background: linear-gradient(135deg, rgba(55, 121, 255, 0.85), rgba(35, 90, 200, 0.9));
+     color: white;
+ }
+
+ .cta-btn-primary:hover {
+     transform: translateY(-2px);
+     box-shadow: 0 8px 20px rgba(55, 121, 255, 0.4);
+ }
+
+ .cta-btn-secondary {
+     background: rgba(55, 121, 255, 0.15);
+     color: rgba(55, 121, 255, 0.85);
+     border: 1px solid rgba(55, 121, 255, 0.3);
+ }
+
+ .cta-btn-secondary:hover {
+     background: rgba(55, 121, 255, 0.3);
+     transform: translateY(-2px);
+ }
+
+ /* ======= ریسپانسیو ======= */
+ @media (max-width: 992px) {
+     .about-header h1 {
+         font-size: 2rem;
+     }
+
+     .stats-section {
+         grid-template-columns: repeat(2, 1fr);
+     }
+
+     .values-grid {
+         grid-template-columns: repeat(2, 1fr);
+     }
+
+     .team-grid {
+         grid-template-columns: repeat(2, 1fr);
+     }
+
+     .why-us-grid {
+         grid-template-columns: repeat(2, 1fr);
+     }
+ }
+
+ @media (max-width: 768px) {
+     .about-page {
+         padding: 100px 0 2rem;
+     }
+
+     .about-header h1 {
+         font-size: 1.6rem;
+     }
+
+     .about-header p {
+         font-size: 0.85rem;
+     }
+
+     .story-grid {
+         grid-template-columns: 1fr;
+     }
+
+     .story-text h2 {
+         font-size: 1.4rem;
+     }
+
+     .stats-section {
+         gap: 1rem;
+     }
+
+     .stat-card {
+         padding: 1rem;
+     }
+
+     .stat-card h3 {
+         font-size: 1.5rem;
+     }
+
+     .values-grid {
+         grid-template-columns: 1fr;
+     }
+
+     .team-grid {
+         grid-template-columns: 1fr;
+     }
+
+     .why-us-grid {
+         grid-template-columns: 1fr;
+     }
+
+     .cta-section {
+         padding: 2rem;
+     }
+
+     .cta-section h2 {
+         font-size: 1.4rem;
+     }
+ }
+
+ @media (max-width: 576px) {
+     .stats-section {
+         grid-template-columns: 1fr;
+     }
+
+     .stat-card {
+         display: flex;
+         align-items: center;
+         text-align: right;
+         gap: 1rem;
+     }
+
+     .stat-card i {
+         margin-bottom: 0;
+     }
+
+     .cta-buttons {
+         flex-direction: column;
+         align-items: center;
+     }
+ }

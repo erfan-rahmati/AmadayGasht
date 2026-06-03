@@ -1,0 +1,4719 @@
+ @font-face {
+     font-family: "iranyekanwebbold";
+     src: url('../assetss/fonts/iranyekanwebbold.woff2');
+ }
+
+ @font-face {
+     font-family: "iranyekanwebmedium";
+     src: url('../assetss/fonts/iranyekanwebmedium.woff');
+ }
+
+ @font-face {
+     font-family: "iranyekanwebregular";
+     src: url('../assetss/fonts/iranyekanwebregular.woff2');
+ }
+
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ html,
+ body {
+     overflow-x: hidden;
+     max-width: 100%;
+ }
+
+ body {
+     font-family: "iranyekanwebmedium";
+     background: #0a0f14;
+     scroll-behavior: smooth;
+ }
+
+ .custom-navbar {
+     background: rgba(10, 15, 20, 0.95);
+     backdrop-filter: blur(10px);
+     padding: 0.8rem 0;
+     transition: all 0.3s ease;
+     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+     position: fixed;
+     top: 0;
+     width: 100%;
+     z-index: 1000;
+ }
+
+ .container {
+     max-width: 1200px;
+     margin: 0 auto;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     flex-wrap: wrap;
+ }
+
+ .navbar-brand {
+     font-size: 1.7rem;
+     font-weight: 800;
+     letter-spacing: -0.5px;
+     color: #ffffff !important;
+     text-decoration: none;
+     display: flex;
+     align-items: center;
+     gap: 8px;
+ }
+
+ .navbar-brand i {
+     color: rgba(55, 121, 255, 0.85);
+     font-size: 1.8rem;
+ }
+
+ .navbar-nav {
+     display: flex;
+     gap: 0.25rem;
+     list-style: none;
+     margin: 0;
+     padding: 0;
+ }
+
+ .nav-link-custom {
+     font-weight: 550;
+     font-size: 1rem;
+     padding: 0.6rem 1.2rem;
+     color: #e0e0e0;
+     border-radius: 40px;
+     transition: all 0.2s ease;
+     text-decoration: none;
+     display: inline-block;
+ }
+
+ .nav-link-custom:hover {
+     background: rgba(255, 255, 255, 0.1);
+     color: rgba(55, 121, 255, 0.85);
+ }
+
+ .nav-link-custom.active {
+     background: rgba(55, 121, 255, 0.85);
+     color: #ffffff;
+ }
+
+ .btn-reserve {
+     background: linear-gradient(135deg, rgba(55, 121, 255, 0.85), rgba(35, 90, 200, 0.9));
+     border: none;
+     padding: 0.5rem 1.6rem;
+     border-radius: 40px;
+     font-weight: 550;
+     color: white;
+     transition: 0.2s;
+     box-shadow: 0 4px 10px rgba(55, 121, 255, 0.3);
+     text-decoration: none;
+     display: inline-block;
+     cursor: pointer;
+ }
+
+ .btn-reserve:hover {
+     transform: translateY(-2px);
+     background: linear-gradient(135deg, rgba(45, 100, 220, 0.9), rgba(25, 70, 180, 0.95));
+     box-shadow: 0 8px 20px rgba(55, 121, 255, 0.4);
+     color: white;
+ }
+
+ .burger-menu {
+     display: none;
+     flex-direction: column;
+     cursor: pointer;
+     gap: 6px;
+     margin-right: 15px;
+ }
+
+ .burger-menu span {
+     width: 27px;
+     height: 3px;
+     background: rgba(55, 121, 255, 0.85);
+     border-radius: 4px;
+     transition: 0.2s;
+ }
+
+ /* اطمینان از عدم تداخل اسلایدرها */
+ .swiper,
+ .swiper-nz,
+ .swiper-calendar,
+ .albumsSwiper,
+ .testimonialsSwiper {
+     width: 100%;
+     overflow: hidden;
+     align-items: center;
+     display: flex;
+     flex-direction: column;
+ }
+
+ /* اطمینان از ارتفاع مناسب هر اسلایدر */
+ .mainSwiper {
+     height: 500px;
+ }
+
+ .testimonialsSwiper {
+     height: auto;
+     padding-bottom: 20px;
+ }
+
+ .albumsSwiper {
+     height: auto;
+     padding-bottom: 20px;
+ }
+
+ /* جلوگیری از تداخل در ریسپانسیو */
+ @media (max-width: 992px) {
+     .mainSwiper {
+         height: 420px;
+     }
+ }
+
+ @media (max-width: 576px) {
+     .mainSwiper {
+         height: 320px;
+     }
+ }
+
+ @media (max-width: 992px) {
+     .navbar-collapse {
+         position: fixed;
+         top: 70px;
+         right: -100%;
+         width: 75%;
+         height: calc(100vh - 70px);
+         background: #0f151c;
+         flex-direction: column;
+         padding: 2rem 1.5rem;
+         box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+         transition: 0.3s ease;
+         z-index: 1000;
+         border-radius: 20px 0 0 20px;
+     }
+
+     .swiper-nz {
+         height: 420px;
+         width: 95%;
+     }
+
+     .navbar-collapse.show {
+         right: 0;
+     }
+
+     .burger-menu {
+         display: flex;
+     }
+
+     .navbar-nav {
+         flex-direction: column;
+         width: 100%;
+         gap: 0.8rem;
+     }
+
+     .btn-reserve {
+         margin-top: 1rem;
+         width: fit-content;
+     }
+
+     .container {
+         justify-content: space-between;
+     }
+ }
+
+ .full-width-slider {
+     width: 100%;
+     position: relative;
+     overflow: hidden;
+     margin-top: 80px;
+ }
+
+ .swiper {
+     width: 100%;
+     max-width: 1300px;
+     height: 500px;
+     margin: 30px auto 0;
+     border-radius: 25px;
+ }
+
+ .swiper-slide {
+     position: relative;
+     align-items: flex-end;
+     justify-content: flex-start;
+     border-radius: 25px;
+     cursor: pointer;
+ }
+
+ @media (max-width: 992px) {
+     .swiper {
+         height: 420px;
+         width: 95%;
+     }
+
+     .full-width-slider {
+         margin-top: 75px;
+     }
+ }
+
+ @media (max-width: 576px) {
+     .swiper {
+         height: 320px;
+     }
+ }
+
+ .swiper-nz {
+     height: 320px;
+ }
+
+ .slide-overlay {
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     background: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 70%, transparent);
+     padding: 2rem 2rem 1.8rem;
+     color: white;
+     border-radius: 0 0 25px 25px;
+ }
+
+ .slide-overlay h2 {
+     font-size: 2rem;
+     font-weight: 800;
+     margin-bottom: 0.5rem;
+ }
+
+ .slide-overlay p {
+     font-size: 1rem;
+     opacity: 0.9;
+     max-width: 65%;
+ }
+
+ @media (max-width: 768px) {
+     .slide-overlay h2 {
+         font-size: 1.4rem;
+     }
+
+     .slide-overlay p {
+         max-width: 100%;
+         font-size: 0.85rem;
+     }
+ }
+
+ .header-wrapper {
+     position: relative;
+     background: url(../assetss/Images/bg-slider.jpg) center center / cover no-repeat;
+     height: 750px;
+ }
+
+ .header-wrapper::before {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0.5) 100%);
+     z-index: 1;
+ }
+
+ .header-wrapper>* {
+     position: relative;
+     z-index: 2;
+ }
+
+ .swiper-button-next,
+ .swiper-button-prev {
+     color: white;
+     background: rgba(0, 0, 0, 0.5);
+     width: 40px;
+     height: 40px;
+     border-radius: 50%;
+     backdrop-filter: blur(5px);
+ }
+
+ .swiper-button-next:after,
+ .swiper-button-prev:after {
+     font-size: 1.2rem;
+ }
+
+ .swiper-pagination-bullet {
+     background: white;
+     opacity: 0.6;
+ }
+
+ .swiper-pagination-bullet-active {
+     background: rgba(55, 121, 255, 0.85);
+ }
+
+ .cards-grid {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 3rem;
+     margin-top: 2rem;
+     justify-content: center;
+ }
+
+ .stats-card-btn {
+     width: 120px;
+     background: #141b24;
+     border-radius: 20px;
+     padding: 1rem 0.5rem;
+     text-align: center;
+     cursor: pointer;
+     transition: all 0.25s ease;
+     border: 1px solid rgba(255, 255, 255, 0.08);
+     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+ }
+
+ .stats-card-btn i {
+     font-size: 2rem;
+     color: rgba(55, 121, 255, 0.85);
+     margin-bottom: 8px;
+     display: inline-block;
+ }
+
+ .stats-card-btn .detail {
+     font-weight: 600;
+     font-size: 0.8rem;
+     color: #f0f0f0;
+     display: block;
+ }
+
+ .stats-card-btn.active {
+     background: linear-gradient(135deg, #1a2530, #141b24);
+     border-color: rgba(55, 121, 255, 0.85);
+     transform: translateY(-5px);
+     box-shadow: 0 15px 25px -8px rgba(55, 121, 255, 0.3);
+ }
+
+ .stats-card-btn.active i {
+     color: rgba(55, 121, 255, 0.85);
+     text-shadow: 0 0 5px rgba(55, 121, 255, 0.5);
+ }
+
+ .stats-card-btn.active .detail {
+     color: rgba(55, 121, 255, 0.85);
+ }
+
+ .stats-card-btn:hover:not(.active) {
+     background: #1c2631;
+     transform: translateY(-3px);
+     border-color: rgba(55, 121, 255, 0.4);
+ }
+
+ .mt-4 {
+     margin-top: 1.5rem;
+ }
+
+ .mb-5 {
+     margin-bottom: 3rem;
+ }
+
+ /* لودینگ اسپینر */
+ .slider-loading {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     color: white;
+     font-size: 2rem;
+     z-index: 10;
+ }
+
+ /* بخش تقویم */
+
+ /* کانتینر اصلی دو ستونه */
+ .reservation-container {
+     max-width: 1300px;
+     width: 100%;
+     margin: 0 auto;
+     display: flex;
+     flex-wrap: wrap;
+     gap: 2rem;
+     align-items: stretch;
+ }
+
+ /* سمت چپ - متن توضیحی */
+ .info-section {
+     flex: 1;
+     min-width: 280px;
+     background: linear-gradient(135deg, #141b24 0%, #0f151c 100%);
+     border-radius: 32px;
+     padding: 2rem;
+     border: 1px solid rgba(55, 121, 255, 0.2);
+     box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.5);
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+ }
+
+ .info-badge {
+     display: inline-block;
+     background: rgba(55, 121, 255, 0.15);
+     padding: 0.4rem 1rem;
+     border-radius: 40px;
+     font-size: 0.75rem;
+     font-weight: 600;
+     color: rgba(55, 121, 255, 0.85);
+     margin-bottom: 1.5rem;
+     width: fit-content;
+ }
+
+ .info-section h1 {
+     font-size: 2rem;
+     font-weight: 800;
+     color: #ffffff;
+     margin-bottom: 1rem;
+     line-height: 1.3;
+ }
+
+ .info-section h1 i {
+     color: rgba(55, 121, 255, 0.85);
+     margin-left: 10px;
+ }
+
+ .info-section .highlight {
+     color: rgba(55, 121, 255, 0.85);
+ }
+
+ .info-desc {
+     color: #9aa9b8;
+     font-size: 0.95rem;
+     line-height: 1.8;
+     margin-bottom: 1.5rem;
+ }
+
+ .features-list {
+     list-style: none;
+     margin-bottom: 2rem;
+ }
+
+ .features-list li {
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     margin-bottom: 1rem;
+     color: #cbd5e1;
+     font-size: 0.9rem;
+ }
+
+ .features-list li i {
+     width: 28px;
+     height: 28px;
+     background: rgba(55, 121, 255, 0.15);
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     color: rgba(55, 121, 255, 0.85);
+     font-size: 0.8rem;
+ }
+
+ .info-footer {
+     background: rgba(55, 121, 255, 0.08);
+     border-radius: 20px;
+     padding: 1rem;
+     text-align: center;
+     margin-top: 1rem;
+ }
+
+ .info-footer p {
+     color: #9aa9b8;
+     font-size: 0.8rem;
+ }
+
+ .info-footer p i {
+     color: rgba(55, 121, 255, 0.85);
+     margin-left: 5px;
+ }
+
+ /* سمت راست - تقویم */
+ .calendar-section {
+     flex: 1;
+     min-width: 450px;
+     background: #141b24;
+     border-radius: 32px;
+     padding: 1.8rem;
+     box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.6);
+     border: 1px solid rgba(255, 255, 255, 0.08);
+ }
+
+ /* هدر تقویم */
+ .calendar-header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin-bottom: 2rem;
+     padding-bottom: 1rem;
+     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+ }
+
+ .month-nav-btn {
+     background: rgba(55, 121, 255, 0.15);
+     border: none;
+     width: 44px;
+     height: 44px;
+     border-radius: 50%;
+     cursor: pointer;
+     color: rgba(55, 121, 255, 0.85);
+     font-size: 1.3rem;
+     transition: all 0.25s ease;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .month-nav-btn:hover {
+     background: rgba(55, 121, 255, 0.35);
+     transform: scale(1.05);
+     color: rgba(55, 121, 255, 1);
+ }
+
+ .current-month-year {
+     font-size: 1.5rem;
+     font-weight: 800;
+     color: #ffffff;
+     letter-spacing: -0.5px;
+ }
+
+ /* روزهای هفته */
+ .weekdays {
+     display: grid;
+     grid-template-columns: repeat(7, 1fr);
+     text-align: center;
+     margin-bottom: 1.2rem;
+     padding: 0 0.25rem;
+ }
+
+ .weekdays span {
+     color: #9aa9b8;
+     font-size: 0.9rem;
+     font-weight: 600;
+     padding: 0.5rem 0;
+     letter-spacing: 0.5px;
+ }
+
+ /* روزهای ماه */
+ .calendar-days {
+     display: grid;
+     grid-template-columns: repeat(7, 1fr);
+     gap: 8px;
+     padding: 0.25rem;
+ }
+
+ .calendar-day {
+     aspect-ratio: 1;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     background: #1a2530;
+     border-radius: 16px;
+     cursor: pointer;
+     transition: all 0.2s ease;
+     color: #e0e0e0;
+     font-weight: 500;
+     font-size: 1rem;
+     border: 1.5px solid transparent;
+     position: relative;
+ }
+
+ .calendar-day:hover {
+     background: rgba(55, 121, 255, 0.25);
+     transform: scale(1.02);
+     border-color: rgba(55, 121, 255, 0.4);
+ }
+
+ .calendar-day.today {
+     border-color: rgba(55, 121, 255, 0.85);
+     color: rgba(55, 121, 255, 0.85);
+     font-weight: 800;
+     background: rgba(55, 121, 255, 0.08);
+ }
+
+ .calendar-day.selected {
+     background: rgba(55, 121, 255, 0.85);
+     color: white;
+     box-shadow: 0 4px 12px rgba(55, 121, 255, 0.4);
+     font-weight: 700;
+ }
+
+ .calendar-day.other-month {
+     opacity: 0.35;
+     background: #11171f;
+ }
+
+ /* Swiper */
+ .swiper-calendar {
+     overflow: hidden;
+     width: 100%;
+ }
+
+ .swiper-slide {
+     background: transparent;
+ }
+
+ /* مودال */
+ .modal-overlay {
+     position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background: rgba(0, 0, 0, 0.85);
+     backdrop-filter: blur(8px);
+     z-index: 2000;
+     display: none;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .modal-overlay.active {
+     display: flex;
+ }
+
+ .modal-content {
+     background: #141b24;
+     border-radius: 32px;
+     width: 90%;
+     max-width: 420px;
+     max-height: 80vh;
+     overflow-y: auto;
+     padding: 1.8rem;
+     border: 1px solid rgba(55, 121, 255, 0.3);
+     box-shadow: 0 30px 50px rgba(0, 0, 0, 0.5);
+ }
+
+ .modal-header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin-bottom: 1.2rem;
+     padding-bottom: 1rem;
+     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+ }
+
+ .modal-header h3 {
+     color: #ffffff;
+     font-size: 1.2rem;
+     font-weight: 700;
+ }
+
+ .modal-header h3 i {
+     color: rgba(55, 121, 255, 0.85);
+     margin-left: 8px;
+ }
+
+ .close-modal {
+     background: none;
+     border: none;
+     color: #9aa9b8;
+     font-size: 1.5rem;
+     cursor: pointer;
+     transition: 0.2s;
+     width: 36px;
+     height: 36px;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .close-modal:hover {
+     background: rgba(255, 255, 255, 0.1);
+     color: rgba(55, 121, 255, 0.85);
+ }
+
+ .tour-item {
+     background: #1a2530;
+     border-radius: 20px;
+     padding: 1rem 1.2rem;
+     margin-bottom: 1rem;
+     transition: 0.2s;
+     border: 1px solid rgba(255, 255, 255, 0.05);
+ }
+
+ .tour-item:hover {
+     border-color: rgba(55, 121, 255, 0.3);
+     transform: translateX(-3px);
+ }
+
+ .tour-title {
+     color: #ffffff;
+     font-weight: 550;
+     margin-bottom: 0.5rem;
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     font-size: 1rem;
+ }
+
+ .tour-title i {
+     color: rgba(55, 121, 255, 0.85);
+     font-size: 1.1rem;
+ }
+
+ .tour-desc {
+     color: #9aa9b8;
+     font-size: 0.85rem;
+     margin-bottom: 0.8rem;
+     line-height: 1.5;
+ }
+
+ .reserve-btn {
+     background: linear-gradient(135deg, rgba(55, 121, 255, 0.85), rgba(35, 90, 200, 0.9));
+     border: none;
+     padding: 0.5rem 1.2rem;
+     border-radius: 40px;
+     color: white;
+     font-weight: 550;
+     cursor: pointer;
+     font-size: 0.85rem;
+     transition: 0.2s;
+ }
+
+ .reserve-btn:hover {
+     transform: translateY(-2px);
+     box-shadow: 0 6px 14px rgba(55, 121, 255, 0.35);
+ }
+
+ .no-tours {
+     text-align: center;
+     color: #9aa9b8;
+     padding: 2rem;
+ }
+
+ .no-tours i {
+     font-size: 2rem;
+     margin-bottom: 0.8rem;
+     display: block;
+     color: rgba(55, 121, 255, 0.5);
+ }
+
+ /* گزینه ۵ - تایتل با شمارنده و استایل مدرن (پیشنهادی) */
+ .calendar-title-modern {
+     width: 100%;
+     text-align: center;
+     margin-bottom: 32px;
+     margin-top: 32px;
+ }
+
+ .calendar-title-modern h2 {
+     display: inline-flex;
+     align-items: baseline;
+     justify-content: center;
+     gap: 8px;
+     color: #ffffff;
+     font-size: 1.6rem;
+     font-weight: 600;
+ }
+
+ .calendar-title-modern h2 i {
+     background: linear-gradient(135deg, rgba(55, 121, 255, 0.85), rgba(35, 90, 200, 0.9));
+     -webkit-background-clip: text;
+     background-clip: text;
+     -webkit-text-fill-color: transparent;
+     font-size: 1.8rem;
+ }
+
+ .calendar-title-modern h2 span {
+     background: linear-gradient(135deg, rgba(55, 121, 255, 0.85), rgba(35, 90, 200, 0.9));
+     -webkit-background-clip: text;
+     background-clip: text;
+     -webkit-text-fill-color: transparent;
+     font-weight: 800;
+     margin: 0 5px;
+ }
+
+ .calendar-title-modern {
+     display: inline-block;
+     padding: 4px 12px;
+     border-radius: 40px;
+     font-size: 0.7rem;
+     font-weight: 500;
+     color: rgba(55, 121, 255, 0.85);
+     margin-right: 12px;
+     vertical-align: middle;
+ }
+
+ @media (max-width: 768px) {
+     .calendar-title-modern h2 {
+         font-size: 1.3rem;
+         flex-wrap: wrap;
+         justify-content: center;
+     }
+
+     .calendar-title-modern {
+         display: block;
+         margin-top: 8px;
+         width: fit-content;
+         margin-right: auto;
+         margin-left: auto;
+     }
+ }
+
+ .tour-title {
+     color: #ffffff;
+     font-weight: 550;
+     margin-bottom: 0.5rem;
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     font-size: 1rem;
+ }
+
+ .tour-title i {
+     color: rgba(55, 121, 255, 0.85);
+     font-size: 1.1rem;
+ }
+
+ .tour-desc {
+     color: #9aa9b8;
+     font-size: 0.85rem;
+     margin-bottom: 0.8rem;
+     line-height: 1.5;
+ }
+
+ .tour-desc i {
+     margin-left: 5px;
+     width: 18px;
+ }
+
+ .reserve-btn {
+     background: linear-gradient(135deg, rgba(55, 121, 255, 0.85), rgba(35, 90, 200, 0.9));
+     font-family: "iranyekanwebmedium";
+     border: none;
+     padding: 0.5rem 1.2rem;
+     border-radius: 40px;
+     color: white;
+     font-weight: 550;
+     cursor: pointer;
+     font-size: 0.85rem;
+     transition: 0.2s;
+     margin-top: 0.3rem;
+ }
+
+ .reserve-btn:hover {
+     transform: translateY(-2px);
+     box-shadow: 0 6px 14px rgba(55, 121, 255, 0.35);
+ }
+
+ .no-tours {
+     text-align: center;
+     color: #9aa9b8;
+     padding: 2rem;
+ }
+
+ .no-tours i {
+     font-size: 2rem;
+     margin-bottom: 0.8rem;
+     display: block;
+     color: rgba(55, 121, 255, 0.5);
+ }
+
+ ::-webkit-scrollbar {
+     width: 5px;
+ }
+
+ ::-webkit-scrollbar-track {
+     background: #1a2530;
+     border-radius: 10px;
+ }
+
+ ::-webkit-scrollbar-thumb {
+     background: rgba(55, 121, 255, 0.5);
+     border-radius: 10px;
+ }
+
+ /* ==================== بخش نظرات مشتریان ==================== */
+ .testimonials-section {
+     padding: 4rem 0;
+     background: linear-gradient(180deg, #0a0f14 0%, #0d1218 100%);
+     position: relative;
+     overflow: hidden;
+ }
+
+ .testimonials-wrapper {
+     max-width: 1200px;
+     margin: 0 auto;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-wrap: wrap;
+ }
+
+ .testimonials-section::before {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     height: 1px;
+     background: linear-gradient(90deg, transparent, rgba(55, 121, 255, 0.3), transparent);
+ }
+
+ .testimonials-header {
+     text-align: center;
+     margin-bottom: 32px;
+ }
+
+ .testimonials-title {
+     font-size: 2rem;
+     font-weight: 800;
+     color: #ffffff;
+     margin-bottom: 0.8rem;
+ }
+
+ .testimonials-title span {
+     background: linear-gradient(135deg, rgba(55, 121, 255, 0.85), rgba(35, 90, 200, 0.9));
+     -webkit-background-clip: text;
+     background-clip: text;
+     -webkit-text-fill-color: transparent;
+ }
+
+ .testimonials-subtitle {
+     color: #9aa9b8;
+     font-size: 0.95rem;
+ }
+
+ /* کارت نظرات */
+ .testimonials-slider-container {
+     position: relative;
+ }
+
+ .testimonialsSwiper {
+     overflow: hidden;
+     padding: 20px 10px;
+ }
+
+ .testimonial-card {
+     background: #141b24;
+     border-radius: 24px;
+     padding: 2rem;
+     border: 1px solid rgba(255, 255, 255, 0.05);
+     transition: all 0.3s ease;
+     position: relative;
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+ }
+
+ .testimonial-card:hover {
+     transform: translateY(-5px);
+     border-color: rgba(55, 121, 255, 0.3);
+     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+ }
+
+ .testimonial-quote {
+     position: absolute;
+     top: 20px;
+     right: 20px;
+     opacity: 0.15;
+     font-size: 3rem;
+     color: rgba(55, 121, 255, 0.85);
+ }
+
+ .testimonial-rating {
+     margin-bottom: 1.2rem;
+     display: flex;
+     gap: 4px;
+     direction: ltr;
+ }
+
+ .testimonial-rating i {
+     color: #fbbf24;
+     font-size: 0.9rem;
+ }
+
+ .testimonial-text {
+     color: #cbd5e1;
+     font-size: 0.95rem;
+     line-height: 1.8;
+     margin-bottom: 1.5rem;
+     min-height: 100px;
+ }
+
+ .testimonial-author {
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     border-top: 1px solid rgba(255, 255, 255, 0.08);
+     padding-top: 1.2rem;
+ }
+
+ .author-avatar i {
+     font-size: 2.5rem;
+     color: rgba(55, 121, 255, 0.6);
+ }
+
+ .author-info h4 {
+     color: #ffffff;
+     font-size: 1rem;
+     font-weight: 700;
+     margin-bottom: 4px;
+ }
+
+ .author-info span {
+     color: #9aa9b8;
+     font-size: 0.7rem;
+ }
+
+ /* ناوبری اسلایدر نظرات */
+ .testimonials-nav {
+     display: flex;
+     justify-content: center;
+     gap: 1rem;
+     margin-top: 2rem;
+ }
+
+ .testimonial-prev,
+ .testimonial-next {
+     width: 44px;
+     height: 44px;
+     background: rgba(55, 121, 255, 0.15);
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     color: rgba(55, 121, 255, 0.85);
+     font-size: 1.2rem;
+ }
+
+ .testimonial-prev:hover,
+ .testimonial-next:hover {
+     background: rgba(55, 121, 255, 0.35);
+     transform: scale(1.05);
+ }
+
+ .testimonials-pagination {
+     position: relative;
+     margin-top: 1.5rem;
+ }
+
+ .swiper-nz {
+     width: 100%;
+     max-width: 1300px;
+     height: 350px;
+     margin: 30px auto 0;
+     border-radius: 25px;
+     box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.5);
+ }
+
+ .swiper-nz .swiper-slide {
+     width: auto !important;
+     flex-shrink: 0;
+ }
+
+ .swiper-ab {
+     width: 100%;
+     max-width: 1300px;
+     height: 500px;
+     border-radius: 25px;
+ }
+
+ .testimonials-pagination .swiper-pagination-bullet {
+     background: #9aa9b8;
+     opacity: 0.5;
+ }
+
+ .testimonials-pagination .swiper-pagination-bullet-active {
+     background: rgba(55, 121, 255, 0.85);
+     opacity: 1;
+ }
+
+ /* ======================================== */
+ /* بخش آلبوم سفرها - ریسپانسیو کامل مشابه نظرات */
+ /* ======================================== */
+
+ .albums-section {
+     padding: 4rem 0;
+     background: #0a0f14;
+     position: relative;
+     overflow: hidden;
+ }
+
+ .albums-section::before {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     height: 1px;
+     background: linear-gradient(90deg, transparent, rgba(55, 121, 255, 0.3), transparent);
+ }
+
+ .album-wrapper {
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 0 20px;
+     width: 100%;
+     box-sizing: border-box;
+ }
+
+ .albums-header {
+     text-align: center;
+     margin-bottom: 2rem;
+ }
+
+ .albums-title {
+     font-size: 2rem;
+     font-weight: 800;
+     color: #ffffff;
+     margin-bottom: 0.8rem;
+ }
+
+ .albums-title span {
+     background: linear-gradient(135deg, rgba(55, 121, 255, 0.85), rgba(35, 90, 200, 0.9));
+     -webkit-background-clip: text;
+     background-clip: text;
+     -webkit-text-fill-color: transparent;
+ }
+
+ .albums-subtitle {
+     color: #9aa9b8;
+     font-size: 0.95rem;
+ }
+
+ /* کانتینر اسلایدر */
+ .albums-slider-container {
+     position: relative;
+     width: 100%;
+     overflow: hidden;
+ }
+
+ /* تنظیمات Swiper آلبوم */
+ .albumsSwiper {
+     width: 100%;
+     overflow: hidden;
+ }
+
+ .albumsSwiper .swiper-wrapper {
+     display: flex;
+     align-items: stretch;
+ }
+
+ .albumsSwiper .swiper-slide {
+     height: auto;
+     display: flex;
+     box-sizing: border-box;
+ }
+
+ /* کارت آلبوم */
+ .album-card {
+     background: #141b24;
+     border-radius: 24px;
+     overflow: hidden;
+     border: 1px solid rgba(255, 255, 255, 0.08);
+     transition: all 0.3s ease;
+     cursor: pointer;
+     text-decoration: none;
+     display: block;
+     width: 100%;
+     height: 85%;
+ }
+
+ .album-card:hover {
+     transform: translateY(-5px);
+     border-color: rgba(55, 121, 255, 0.3);
+     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+ }
+
+ /* تصویر آلبوم */
+ .album-image {
+     position: relative;
+     overflow: hidden;
+ }
+
+ .album-image img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     transition: transform 0.5s ease;
+ }
+
+ .album-card:hover .album-image img {
+     transform: scale(1.05);
+ }
+
+ /* اوورل روی تصویر */
+ .album-overlay {
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+     padding: 1rem;
+ }
+
+ .album-category {
+     display: inline-block;
+     background: rgba(55, 121, 255, 0.85);
+     padding: 0.3rem 0.8rem;
+     border-radius: 40px;
+     font-size: 0.7rem;
+     color: white;
+     font-weight: 600;
+ }
+
+ /* اطلاعات آلبوم */
+ .album-info {
+     padding: 1.2rem;
+ }
+
+ .album-info h3 {
+     color: #ffffff;
+     font-weight: 700;
+     margin-bottom: 0.5rem;
+ }
+
+ .album-info p {
+     color: #9aa9b8;
+     line-height: 1.6;
+     margin-bottom: 1rem;
+     display: -webkit-box;
+     -webkit-line-clamp: 2;
+     -webkit-box-orient: vertical;
+     overflow: hidden;
+ }
+
+ /* متا اطلاعات */
+ .album-meta {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     border-top: 1px solid rgba(255, 255, 255, 0.08);
+     padding-top: 0.8rem;
+ }
+
+ .album-date {
+     color: #9aa9b8;
+     display: flex;
+     align-items: center;
+     gap: 5px;
+ }
+
+ .album-date i {
+     color: rgba(55, 121, 255, 0.85);
+ }
+
+ .album-view {
+     color: rgba(55, 121, 255, 0.85);
+     font-weight: 600;
+     display: flex;
+     align-items: center;
+     gap: 5px;
+     transition: 0.2s;
+ }
+
+ .album-card:hover .album-view {
+     gap: 8px;
+ }
+
+ /* دکمه‌های ناوبری */
+ .albums-nav {
+     display: flex;
+     justify-content: center;
+     gap: 1rem;
+     margin-top: 2rem;
+ }
+
+ .album-prev,
+ .album-next {
+     width: 44px;
+     height: 44px;
+     background: rgba(55, 121, 255, 0.15);
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     color: rgba(55, 121, 255, 0.85);
+     font-size: 1.2rem;
+ }
+
+ .album-prev:hover,
+ .album-next:hover {
+     background: rgba(55, 121, 255, 0.35);
+     transform: scale(1.05);
+ }
+
+ /* Pagination */
+ .albums-pagination {
+     position: relative;
+     margin-top: 1rem;
+     text-align: center;
+ }
+
+ .albums-pagination .swiper-pagination-bullet {
+     width: 8px;
+     height: 8px;
+     background: #9aa9b8;
+     opacity: 0.5;
+     margin: 0 4px;
+     border-radius: 50%;
+     display: inline-block;
+ }
+
+ .albums-pagination .swiper-pagination-bullet-active {
+     background: rgba(55, 121, 255, 0.85);
+     opacity: 1;
+     width: 24px;
+     border-radius: 4px;
+ }
+
+ /* ======= ریسپانسیو بخش آلبوم (مشابه نظرات) ======= */
+
+ /* دسکتاپ بزرگ */
+ @media (min-width: 1200px) {
+     .albumsSwiper .swiper-slide {
+         width: calc(33.333% - 16px) !important;
+         margin: 0 8px !important;
+     }
+
+     .album-image {
+         height: 220px;
+     }
+
+     .album-info h3 {
+         font-size: 1.1rem;
+     }
+
+     .album-info p {
+         font-size: 0.85rem;
+     }
+ }
+
+ /* دسکتاپ */
+ @media (min-width: 992px) and (max-width: 1199px) {
+     .albumsSwiper .swiper-slide {
+         width: calc(33.333% - 16px) !important;
+         margin: 0 8px !important;
+     }
+
+     .album-image {
+         height: 200px;
+     }
+
+     .album-info {
+         padding: 1rem;
+     }
+
+     .album-info h3 {
+         font-size: 1rem;
+     }
+
+     .album-info p {
+         font-size: 0.8rem;
+     }
+ }
+
+ /* تبلت */
+ @media (min-width: 768px) and (max-width: 991px) {
+     .albumsSwiper .swiper-slide {
+         width: calc(50% - 12px) !important;
+         margin: 0 6px !important;
+     }
+
+     .album-image {
+         height: 200px;
+     }
+
+     .album-info {
+         padding: 0.9rem;
+     }
+
+     .album-info h3 {
+         font-size: 1rem;
+     }
+
+     .album-info p {
+         font-size: 0.8rem;
+     }
+
+     .albums-section {
+         padding: 3rem 0;
+     }
+
+     .albums-title {
+         font-size: 1.6rem;
+     }
+ }
+
+ /* موبایل بزرگ */
+ @media (min-width: 551px) and (max-width: 767px) {
+     .albumsSwiper .swiper-slide {
+         width: 100% !important;
+         margin: 0 !important;
+     }
+
+     .album-image {
+         height: 200px;
+     }
+
+     .album-info {
+         padding: 1rem;
+     }
+
+     .album-info h3 {
+         font-size: 1rem;
+     }
+
+     .album-info p {
+         font-size: 0.8rem;
+     }
+
+     .albums-title {
+         font-size: 1.4rem;
+     }
+
+     .album-prev,
+     .album-next {
+         width: 38px;
+         height: 38px;
+         font-size: 1rem;
+     }
+ }
+
+ /* موبایل متوسط */
+ @media (min-width: 401px) and (max-width: 550px) {
+     .albumsSwiper .swiper-slide {
+         width: 100% !important;
+         margin: 0 !important;
+     }
+
+     .album-image {
+         height: 190px;
+     }
+
+     .album-info {
+         padding: 0.8rem;
+     }
+
+     .album-info h3 {
+         font-size: 0.95rem;
+     }
+
+     .album-info p {
+         font-size: 0.75rem;
+     }
+
+     .album-date,
+     .album-view {
+         font-size: 0.7rem;
+     }
+
+     .albums-title {
+         font-size: 1.3rem;
+     }
+
+     .album-prev,
+     .album-next {
+         width: 34px;
+         height: 34px;
+         font-size: 0.9rem;
+     }
+ }
+
+ /* موبایل کوچک */
+ @media (min-width: 365px) and (max-width: 400px) {
+     .albumsSwiper .swiper-slide {
+         width: 100% !important;
+         margin: 0 !important;
+     }
+
+     .album-image {
+         height: 170px;
+     }
+
+     .album-info {
+         padding: 0.7rem;
+     }
+
+     .album-info h3 {
+         font-size: 0.85rem;
+     }
+
+     .album-info p {
+         font-size: 0.7rem;
+     }
+
+     .album-date,
+     .album-view {
+         font-size: 0.65rem;
+     }
+
+     .albums-title {
+         font-size: 1.2rem;
+     }
+
+     .album-prev,
+     .album-next {
+         width: 30px;
+         height: 30px;
+         font-size: 0.85rem;
+     }
+ }
+
+ /* موبایل خیلی کوچک */
+ @media (max-width: 364px) {
+     .albumsSwiper .swiper-slide {
+         width: 100% !important;
+         margin: 0 !important;
+     }
+
+     .album-image {
+         height: 150px;
+     }
+
+     .album-info {
+         padding: 0.6rem;
+     }
+
+     .album-info h3 {
+         font-size: 0.8rem;
+     }
+
+     .album-info p {
+         font-size: 0.65rem;
+     }
+
+     .album-date,
+     .album-view {
+         font-size: 0.6rem;
+     }
+
+     .albums-title {
+         font-size: 1rem;
+     }
+
+     .album-prev,
+     .album-next {
+         width: 28px;
+         height: 28px;
+         font-size: 0.8rem;
+     }
+ }
+
+ /* ==================== بخش دانستنی و ملزومات سفر ==================== */
+ .travel-tips-section {
+     padding: 5rem 0;
+     background: linear-gradient(180deg, #0a0f14 0%, #0d1218 100%);
+     position: relative;
+     overflow: hidden;
+ }
+
+ .travel-tips-section::before {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     height: 1px;
+     background: linear-gradient(90deg, transparent, rgba(55, 121, 255, 0.3), transparent);
+ }
+
+ .travel-tips_wrapper {
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+ }
+
+ .travel-tips-header {
+     text-align: center;
+     margin-bottom: 3rem;
+ }
+
+ .travel-tips-title {
+     font-size: 2rem;
+     font-weight: 800;
+     color: #ffffff;
+     margin-bottom: 0.8rem;
+ }
+
+ .travel-tips-title span {
+     background: linear-gradient(135deg, rgba(55, 121, 255, 0.85), rgba(35, 90, 200, 0.9));
+     -webkit-background-clip: text;
+     background-clip: text;
+     -webkit-text-fill-color: transparent;
+ }
+
+ .travel-tips-subtitle {
+     color: #9aa9b8;
+     font-size: 0.95rem;
+ }
+
+ /* دکمه‌های تب */
+ .travel-tips-tabs {
+     display: flex;
+     justify-content: center;
+     flex-wrap: wrap;
+     gap: 0.8rem;
+     margin-bottom: 2.5rem;
+ }
+
+ .tips-tab-btn {
+     background: #141b24;
+     border: 1px solid rgba(255, 255, 255, 0.08);
+     padding: 0.7rem 1.3rem;
+     border-radius: 50px;
+     font-size: 0.9rem;
+     font-weight: 550;
+     color: #e0e0e0;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     display: inline-flex;
+     align-items: center;
+     gap: 8px;
+     font-family: inherit;
+ }
+
+ .tips-tab-btn i {
+     font-size: 1rem;
+     color: rgba(55, 121, 255, 0.7);
+     transition: 0.3s;
+ }
+
+ .tips-tab-btn:hover {
+     background: rgba(55, 121, 255, 0.15);
+     border-color: rgba(55, 121, 255, 0.3);
+     transform: translateY(-2px);
+ }
+
+ .tips-tab-btn.active {
+     background: rgba(55, 121, 255, 0.85);
+     border-color: rgba(55, 121, 255, 0.85);
+     color: white;
+ }
+
+ .tips-tab-btn.active i {
+     color: white;
+ }
+
+ /* محتوای تب‌ها */
+ .travel-tips-content {
+     background: #141b24;
+     border-radius: 28px;
+     padding: 2rem;
+     border: 1px solid rgba(255, 255, 255, 0.08);
+     box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.3);
+ }
+
+ .tips-content-item {
+     display: none;
+     animation: fadeIn 0.4s ease;
+ }
+
+ .tips-content-item.active {
+     display: block;
+ }
+
+ @keyframes fadeIn {
+     from {
+         opacity: 0;
+         transform: translateY(10px);
+     }
+
+     to {
+         opacity: 1;
+         transform: translateY(0);
+     }
+ }
+
+ .tips-content-grid {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     gap: 2rem;
+     align-items: center;
+ }
+
+ /* بخش متن */
+ .tips-text h3 {
+     color: #ffffff;
+     font-size: 1.3rem;
+     margin-bottom: 1.5rem;
+     display: flex;
+     align-items: center;
+     gap: 10px;
+ }
+
+ .tips-text h3 i {
+     color: rgba(55, 121, 255, 0.85);
+     font-size: 1.4rem;
+ }
+
+ .tips-list {
+     list-style: none;
+     display: flex;
+     flex-direction: column;
+     gap: 1rem;
+ }
+
+ .tips-list li {
+     color: #cbd5e1;
+     font-size: 0.9rem;
+     display: flex;
+     align-items: center;
+     gap: 12px;
+ }
+
+ .tips-list li i {
+     color: rgba(55, 121, 255, 0.85);
+     font-size: 1rem;
+     width: 20px;
+ }
+
+ /* بخش تصویری */
+ .tips-visual {
+     background: linear-gradient(135deg, #1a2530, #11171f);
+     border-radius: 24px;
+     padding: 2rem;
+     text-align: center;
+     border: 1px solid rgba(55, 121, 255, 0.15);
+ }
+
+ .visual-icon-tips {
+     font-size: 4rem;
+     color: rgba(55, 121, 255, 0.85);
+     margin-bottom: 1rem;
+     display: inline-block;
+ }
+
+ .tips-visual-title {
+     font-size: 1.3rem;
+     font-weight: 700;
+     color: #ffffff;
+     margin-bottom: 0.5rem;
+ }
+
+ .tips-visual-desc {
+     color: #9aa9b8;
+     font-size: 0.85rem;
+     margin-bottom: 1.5rem;
+ }
+
+ .tips-badge-group {
+     display: flex;
+     justify-content: center;
+     flex-wrap: wrap;
+     gap: 0.8rem;
+ }
+
+ .tips-badge {
+     background: rgba(55, 121, 255, 0.15);
+     padding: 0.4rem 1rem;
+     border-radius: 40px;
+     font-size: 0.7rem;
+     font-weight: 600;
+     color: rgba(55, 121, 255, 0.85);
+     display: inline-flex;
+     align-items: center;
+     gap: 5px;
+ }
+
+ .tips-badge i {
+     font-size: 0.7rem;
+ }
+
+ /* ==================== بخش پشتیبانی و تماس ==================== */
+ .support-section {
+     padding: 5rem 0;
+     background: #0a0f14;
+     position: relative;
+     background: url('../assetss/Images/textarea-bg.jpg') center center / cover no-repeat;
+ }
+
+ .support-section::before {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     z-index: 1;
+     background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 15%, rgba(0, 0, 0, 0.5) 45%);
+ }
+
+ .support-wrapper {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     background: rgba(26, 37, 48, 75%);
+     border-radius: 32px;
+     gap: 3rem;
+     align-items: center;
+ }
+
+ /* سمت راست - بخش اطلاعات */
+ .support-info {
+     padding-right: 2rem;
+     z-index: 2;
+ }
+
+ .support-badge {
+     display: inline-block;
+     background: rgba(55, 121, 255, 0.15);
+     padding: 0.4rem 1.2rem;
+     border-radius: 40px;
+     font-size: 0.8rem;
+     font-weight: 600;
+     color: rgba(55, 121, 255, 0.85);
+     margin-bottom: 1.5rem;
+ }
+
+ .support-badge i {
+     margin-left: 6px;
+ }
+
+ .support-title {
+     font-size: 2.2rem;
+     font-weight: 800;
+     color: #ffffff;
+     line-height: 1.3;
+     margin-bottom: 1.5rem;
+ }
+
+ .support-title span {
+     background: linear-gradient(135deg, rgba(55, 121, 255, 0.85), rgba(35, 90, 200, 0.9));
+     -webkit-background-clip: text;
+     background-clip: text;
+     -webkit-text-fill-color: transparent;
+ }
+
+ .support-desc {
+     color: #9aa9b8;
+     font-size: 0.95rem;
+     line-height: 1.8;
+     margin-bottom: 2rem;
+ }
+
+ .support-features {
+     display: flex;
+     flex-direction: column;
+     gap: 1.2rem;
+ }
+
+ .support-feature {
+     display: flex;
+     align-items: center;
+     gap: 1rem;
+ }
+
+ .support-feature i {
+     width: 45px;
+     height: 45px;
+     background: rgba(55, 121, 255, 0.15);
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 1.2rem;
+     color: rgba(55, 121, 255, 0.85);
+     transition: 0.3s;
+ }
+
+ .support-feature:hover i {
+     background: rgba(55, 121, 255, 0.3);
+     transform: scale(1.05);
+ }
+
+ .support-feature h4 {
+     color: #ffffff;
+     font-size: 1rem;
+     font-weight: 550;
+     margin-bottom: 0.2rem;
+ }
+
+ .support-feature p {
+     color: #9aa9b8;
+     font-size: 0.8rem;
+ }
+
+ /* سمت چپ - فرم */
+ .support-form-wrapper {
+     background: linear-gradient(135deg, #141b24, #0f151c);
+     z-index: 2;
+     border-radius: 32px;
+     padding: 2rem;
+     border: 4px solid rgba(55, 121, 255, 0.15);
+     box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.5);
+     transition: 0.3s ease;
+ }
+
+ .support-form-wrapper:hover {
+     border-color: rgba(55, 121, 255, 0.3);
+     transform: translateY(-3px);
+ }
+
+ .form-header {
+     text-align: center;
+     margin-bottom: 1.8rem;
+ }
+
+ .form-header i {
+     font-size: 2.5rem;
+     color: rgba(55, 121, 255, 0.85);
+     margin-bottom: 0.8rem;
+ }
+
+ .form-header h3 {
+     color: #ffffff;
+     font-size: 1.3rem;
+     font-weight: 700;
+     margin-bottom: 0.5rem;
+ }
+
+ .form-header p {
+     color: #9aa9b8;
+     font-size: 0.85rem;
+ }
+
+ /* گروه‌های فرم */
+ .form-group {
+     position: relative;
+     margin-bottom: 1.5rem;
+     display: flex;
+     align-items: center;
+ }
+
+ .input-icon {
+     position: absolute;
+     right: 15px;
+     color: rgba(55, 121, 255, 0.6);
+     font-size: 1rem;
+     pointer-events: none;
+     transition: 0.3s;
+ }
+
+ .form-group input,
+ .form-group textarea {
+     width: 100%;
+     padding: 1rem 3rem 1rem 1rem;
+     background: #1a2530;
+     border: 1px solid rgba(255, 255, 255, 0.08);
+     border-radius: 16px;
+     color: #ffffff;
+     font-size: 0.9rem;
+     font-family: inherit;
+     transition: all 0.3s ease;
+     direction: rtl;
+ }
+
+ .form-group textarea {
+     resize: vertical;
+     min-height: 100px;
+ }
+
+ .form-group input:focus,
+ .form-group textarea:focus {
+     outline: none;
+     border-color: rgba(55, 121, 255, 0.85);
+     box-shadow: 0 0 0 3px rgba(55, 121, 255, 0.1);
+ }
+
+ .form-group input:focus+.input-icon,
+ .form-group textarea:focus+.input-icon {
+     color: rgba(55, 121, 255, 0.85);
+ }
+
+ .form-group input::placeholder,
+ .form-group textarea::placeholder {
+     color: #6c7a89;
+ }
+
+ /* دکمه ارسال */
+ .submit-btn {
+     width: 100%;
+     background: linear-gradient(135deg, rgba(55, 121, 255, 0.85), rgba(35, 90, 200, 0.9));
+     border: none;
+     padding: 1rem;
+     border-radius: 16px;
+     color: white;
+     font-size: 1rem;
+     font-weight: 550;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 10px;
+     font-family: inherit;
+     margin-top: 0.5rem;
+ }
+
+ .submit-btn:hover {
+     transform: translateY(-2px);
+     box-shadow: 0 8px 25px rgba(55, 121, 255, 0.4);
+     gap: 15px;
+ }
+
+ .submit-btn:active {
+     transform: translateY(0);
+ }
+
+ /* فوتر فرم */
+ .form-footer {
+     text-align: center;
+     margin-top: 1.5rem;
+     padding-top: 1rem;
+     border-top: 1px solid rgba(255, 255, 255, 0.08);
+ }
+
+ .form-footer p {
+     color: #6c7a89;
+     font-size: 0.75rem;
+ }
+
+ .form-footer i {
+     color: rgba(55, 121, 255, 0.6);
+     margin-left: 5px;
+ }
+
+ /* پیام موفقیت */
+ .success-message {
+     background: rgba(55, 121, 255, 0.15);
+     border: 1px solid rgba(55, 121, 255, 0.3);
+     border-radius: 16px;
+     padding: 1rem;
+     text-align: center;
+     margin-top: 1rem;
+     display: none;
+ }
+
+ .success-message i {
+     font-size: 1.5rem;
+     color: rgba(55, 121, 255, 0.85);
+     margin-bottom: 0.5rem;
+     display: inline-block;
+ }
+
+ .success-message p {
+     color: #cbd5e1;
+     font-size: 0.85rem;
+ }
+
+ /* ======================================== */
+ /* بخش مقاصد پیشنهادی - ریسپانسیو کامل */
+ /* ======================================== */
+
+ .destinations-section {
+     padding: 4rem 0;
+     background: #0a0f14;
+     position: relative;
+     overflow: hidden;
+ }
+
+ .destinations-section::before {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     height: 1px;
+     background: linear-gradient(90deg, transparent, rgba(55, 121, 255, 0.3), transparent);
+ }
+
+ .destinations-header {
+     text-align: center;
+     margin-bottom: 2rem;
+ }
+
+ .destinations-title {
+     font-size: 2rem;
+     font-weight: 800;
+     color: #ffffff;
+     margin-bottom: 0.8rem;
+ }
+
+ .destinations-title span {
+     background: linear-gradient(135deg, rgba(55, 121, 255, 0.85), rgba(35, 90, 200, 0.9));
+     -webkit-background-clip: text;
+     background-clip: text;
+     -webkit-text-fill-color: transparent;
+ }
+
+ .destinations-subtitle {
+     color: #9aa9b8;
+     font-size: 0.95rem;
+ }
+
+ /* کانتینر اسلایدر */
+ .dest-slider-container {
+     position: relative;
+     width: 100%;
+     overflow: hidden;
+ }
+
+ /* تنظیمات Swiper مقاصد */
+ .destSwiper {
+     width: 100%;
+     overflow: hidden;
+ }
+
+ .destSwiper .swiper-wrapper {
+     display: flex;
+     align-items: stretch;
+ }
+
+ .destSwiper .swiper-slide {
+     height: auto;
+     display: flex;
+     box-sizing: border-box;
+ }
+
+ /* کارت مقصد */
+ .dest-card {
+     background: #141b24;
+     border-radius: 24px;
+     overflow: hidden;
+     border: 1px solid rgba(255, 255, 255, 0.08);
+     transition: all 0.3s ease;
+     cursor: pointer;
+     text-decoration: none;
+     display: block;
+     width: 100%;
+     height: 80%;
+ }
+
+ .dest-card:hover {
+     transform: translateY(-5px);
+     border-color: rgba(55, 121, 255, 0.3);
+     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+ }
+
+ /* تصویر مقصد */
+ .dest-image {
+     position: relative;
+     overflow: hidden;
+ }
+
+ .dest-image img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     transition: transform 0.5s ease;
+ }
+
+ .dest-card:hover .dest-image img {
+     transform: scale(1.05);
+ }
+
+ /* اوورل روی تصویر */
+ .dest-overlay {
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+     padding: 1rem;
+ }
+
+ .dest-location {
+     display: inline-block;
+     background: rgba(55, 121, 255, 0.85);
+     padding: 0.3rem 0.8rem;
+     border-radius: 40px;
+     font-size: 0.7rem;
+     color: white;
+     font-weight: 600;
+ }
+
+ /* اطلاعات مقصد */
+ .dest-info {
+     padding: 1.2rem;
+ }
+
+ .dest-info h3 {
+     color: #ffffff;
+     font-weight: 700;
+     margin-bottom: 0.5rem;
+ }
+
+ .dest-info p {
+     color: #9aa9b8;
+     line-height: 1.6;
+     margin-bottom: 1rem;
+     display: -webkit-box;
+     -webkit-line-clamp: 2;
+     -webkit-box-orient: vertical;
+     overflow: hidden;
+ }
+
+ /* متا اطلاعات */
+ .dest-meta {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     border-top: 1px solid rgba(255, 255, 255, 0.08);
+     padding-top: 0.8rem;
+ }
+
+ .dest-city {
+     color: #9aa9b8;
+     display: flex;
+     align-items: center;
+     gap: 5px;
+     font-size: 0.7rem;
+ }
+
+ .dest-city i {
+     color: rgba(55, 121, 255, 0.85);
+ }
+
+ .dest-view {
+     color: rgba(55, 121, 255, 0.85);
+     font-weight: 600;
+     display: flex;
+     align-items: center;
+     gap: 5px;
+     font-size: 0.7rem;
+     transition: 0.2s;
+ }
+
+ .dest-card:hover .dest-view {
+     gap: 8px;
+ }
+
+ /* دکمه‌های ناوبری */
+ .dest-nav {
+     display: flex;
+     justify-content: center;
+     gap: 1rem;
+     margin-top: 2rem;
+ }
+
+ .dest-btn-prev,
+ .dest-btn-next {
+     width: 44px;
+     height: 44px;
+     background: rgba(55, 121, 255, 0.15);
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     color: rgba(55, 121, 255, 0.85);
+     font-size: 1.2rem;
+ }
+
+ .dest-btn-prev:hover,
+ .dest-btn-next:hover {
+     background: rgba(55, 121, 255, 0.35);
+     transform: scale(1.05);
+ }
+
+ /* Pagination */
+ .dest-pagination {
+     position: relative;
+     margin-top: 1rem;
+     text-align: center;
+ }
+
+ .dest-pagination .swiper-pagination-bullet {
+     width: 8px;
+     height: 8px;
+     background: #9aa9b8;
+     opacity: 0.5;
+     margin: 0 4px;
+     border-radius: 50%;
+     display: inline-block;
+ }
+
+ .dest-pagination .swiper-pagination-bullet-active {
+     background: rgba(55, 121, 255, 0.85);
+     opacity: 1;
+     width: 24px;
+     border-radius: 4px;
+ }
+
+ /* ======= ریسپانسیو بخش مقاصد (مشابه آلبوم) ======= */
+
+ /* دسکتاپ بزرگ */
+ @media (min-width: 1200px) {
+     .destSwiper .swiper-slide {
+         width: calc(33.333% - 16px) !important;
+         margin: 0 8px !important;
+     }
+
+     .dest-image {
+         height: 220px;
+     }
+
+     .dest-info h3 {
+         font-size: 1.1rem;
+     }
+
+     .dest-info p {
+         font-size: 0.85rem;
+     }
+ }
+
+ /* دسکتاپ */
+ @media (min-width: 992px) and (max-width: 1199px) {
+     .destSwiper .swiper-slide {
+         width: calc(33.333% - 16px) !important;
+         margin: 0 8px !important;
+     }
+
+     .dest-image {
+         height: 200px;
+     }
+
+     .dest-info {
+         padding: 1rem;
+     }
+
+     .dest-info h3 {
+         font-size: 1rem;
+     }
+
+     .dest-info p {
+         font-size: 0.8rem;
+     }
+ }
+
+ /* تبلت */
+ @media (min-width: 768px) and (max-width: 991px) {
+     .destSwiper .swiper-slide {
+         width: calc(50% - 12px) !important;
+         margin: 0 6px !important;
+     }
+
+     .dest-image {
+         height: 200px;
+     }
+
+     .dest-info {
+         padding: 0.9rem;
+     }
+
+     .dest-info h3 {
+         font-size: 1rem;
+     }
+
+     .dest-info p {
+         font-size: 0.8rem;
+     }
+
+     .destinations-section {
+         padding: 3rem 0;
+     }
+
+     .destinations-title {
+         font-size: 1.6rem;
+     }
+ }
+
+ /* موبایل بزرگ */
+ @media (min-width: 551px) and (max-width: 767px) {
+     .destSwiper .swiper-slide {
+         width: 100% !important;
+         margin: 0 !important;
+     }
+
+     .dest-image {
+         height: 200px;
+     }
+
+     .dest-info {
+         padding: 1rem;
+     }
+
+     .dest-info h3 {
+         font-size: 1rem;
+     }
+
+     .dest-info p {
+         font-size: 0.8rem;
+     }
+
+     .destinations-title {
+         font-size: 1.4rem;
+     }
+
+     .dest-btn-prev,
+     .dest-btn-next {
+         width: 38px;
+         height: 38px;
+         font-size: 1rem;
+     }
+ }
+
+ /* موبایل متوسط */
+ @media (min-width: 401px) and (max-width: 550px) {
+     .destSwiper .swiper-slide {
+         width: 100% !important;
+         margin: 0 !important;
+     }
+
+     .dest-image {
+         height: 180px;
+     }
+
+     .dest-info {
+         padding: 0.8rem;
+     }
+
+     .dest-info h3 {
+         font-size: 0.9rem;
+     }
+
+     .dest-info p {
+         font-size: 0.75rem;
+     }
+
+     .dest-city,
+     .dest-view {
+         font-size: 0.65rem;
+     }
+
+     .destinations-title {
+         font-size: 1.3rem;
+     }
+
+     .dest-btn-prev,
+     .dest-btn-next {
+         width: 34px;
+         height: 34px;
+         font-size: 0.9rem;
+     }
+ }
+
+ /* موبایل کوچک */
+ @media (min-width: 365px) and (max-width: 400px) {
+     .destSwiper .swiper-slide {
+         width: 100% !important;
+         margin: 0 !important;
+     }
+
+     .dest-image {
+         height: 160px;
+     }
+
+     .dest-info {
+         padding: 0.7rem;
+     }
+
+     .dest-info h3 {
+         font-size: 0.85rem;
+     }
+
+     .dest-info p {
+         font-size: 0.7rem;
+     }
+
+     .dest-city,
+     .dest-view {
+         font-size: 0.6rem;
+     }
+
+     .destinations-title {
+         font-size: 1.2rem;
+     }
+
+     .dest-btn-prev,
+     .dest-btn-next {
+         width: 30px;
+         height: 30px;
+         font-size: 0.85rem;
+     }
+ }
+
+ /* موبایل خیلی کوچک */
+ @media (max-width: 364px) {
+     .destSwiper .swiper-slide {
+         width: 100% !important;
+         margin: 0 !important;
+     }
+
+     .dest-image {
+         height: 140px;
+     }
+
+     .dest-info {
+         padding: 0.6rem;
+     }
+
+     .dest-info h3 {
+         font-size: 0.8rem;
+     }
+
+     .dest-info p {
+         font-size: 0.65rem;
+     }
+
+     .dest-city,
+     .dest-view {
+         font-size: 0.55rem;
+     }
+
+     .destinations-title {
+         font-size: 1rem;
+     }
+
+     .dest-btn-prev,
+     .dest-btn-next {
+         width: 28px;
+         height: 28px;
+         font-size: 0.8rem;
+     }
+ }
+
+ /* ==================== بخش تور اختصاصی ==================== */
+ .custom-tour-section {
+     padding: 5rem 0;
+     background: linear-gradient(180deg, #0a0f14 0%, #0d1218 100%);
+     position: relative;
+     overflow: hidden;
+ }
+
+ .custom-tour-section::before {
+     content: '';
+     position: absolute;
+     top: -30%;
+     right: -20%;
+     width: 80%;
+     height: 150%;
+     background: radial-gradient(circle, rgba(55, 121, 255, 0.06) 0%, transparent 70%);
+     border-radius: 50%;
+     z-index: 0;
+ }
+
+ .custom-tour-section::after {
+     content: '';
+     position: absolute;
+     bottom: -20%;
+     left: -10%;
+     width: 60%;
+     height: 100%;
+     background: radial-gradient(circle, rgba(55, 121, 255, 0.04) 0%, transparent 70%);
+     border-radius: 50%;
+     z-index: 0;
+ }
+
+ .custom-tour-wrapper {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     gap: 3rem;
+     align-items: center;
+     position: relative;
+     z-index: 1;
+ }
+
+ /* سمت راست - اطلاعات */
+ .custom-tour-info {
+     padding-right: 2rem;
+ }
+
+ .custom-tour-badge {
+     display: inline-block;
+     background: rgba(55, 121, 255, 0.15);
+     backdrop-filter: blur(4px);
+     padding: 0.4rem 1.2rem;
+     border-radius: 40px;
+     font-size: 0.8rem;
+     font-weight: 600;
+     color: rgba(55, 121, 255, 0.85);
+     margin-bottom: 1.5rem;
+ }
+
+ .custom-tour-badge i {
+     margin-left: 6px;
+ }
+
+ .custom-tour-title {
+     font-size: 2.2rem;
+     font-weight: 800;
+     color: #ffffff;
+     line-height: 1.3;
+     margin-bottom: 1.5rem;
+ }
+
+ .custom-tour-title span {
+     background: linear-gradient(135deg, rgba(55, 121, 255, 0.85), rgba(35, 90, 200, 0.9));
+     -webkit-background-clip: text;
+     background-clip: text;
+     -webkit-text-fill-color: transparent;
+ }
+
+ .custom-tour-desc {
+     color: #9aa9b8;
+     font-size: 0.95rem;
+     line-height: 1.8;
+     margin-bottom: 2rem;
+ }
+
+ .custom-tour-features {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     gap: 1.2rem;
+ }
+
+ .custom-feature {
+     display: flex;
+     align-items: center;
+     gap: 1rem;
+     background: rgba(20, 27, 36, 0.5);
+     backdrop-filter: blur(8px);
+     padding: 1rem;
+     border-radius: 20px;
+     border: 1px solid rgba(55, 121, 255, 0.1);
+     transition: 0.3s;
+ }
+
+ .custom-feature:hover {
+     border-color: rgba(55, 121, 255, 0.3);
+     transform: translateY(-3px);
+ }
+
+ .custom-feature i {
+     width: 45px;
+     height: 45px;
+     background: rgba(55, 121, 255, 0.15);
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 1.2rem;
+     color: rgba(55, 121, 255, 0.85);
+ }
+
+ .custom-feature h4 {
+     color: #ffffff;
+     font-size: 0.9rem;
+     font-weight: 550;
+     margin-bottom: 0.2rem;
+ }
+
+ .custom-feature p {
+     color: #9aa9b8;
+     font-size: 0.7rem;
+ }
+
+ /* فرم شیشه‌ای */
+ .custom-tour-form-wrapper {
+     background: rgba(20, 27, 36, 0.45);
+     backdrop-filter: blur(16px);
+     border-radius: 32px;
+     padding: 2rem;
+     border: 1px solid rgba(55, 121, 255, 0.25);
+     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+     transition: all 0.3s ease;
+ }
+
+ .custom-tour-form-wrapper:hover {
+     border-color: rgba(55, 121, 255, 0.45);
+     box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+ }
+
+ .form-header-custom {
+     text-align: center;
+     margin-bottom: 1.8rem;
+ }
+
+ .form-header-custom i {
+     font-size: 2.5rem;
+     color: rgba(55, 121, 255, 0.85);
+     margin-bottom: 0.8rem;
+ }
+
+ .form-header-custom h3 {
+     color: #ffffff;
+     font-size: 1.3rem;
+     font-weight: 700;
+     margin-bottom: 0.5rem;
+ }
+
+ .form-header-custom p {
+     color: #9aa9b8;
+     font-size: 0.85rem;
+ }
+
+ /* ردیف فرم */
+ .form-row {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     gap: 1rem;
+     margin-bottom: 1rem;
+ }
+
+ .form-group-custom {
+     position: relative;
+     display: flex;
+     align-items: center;
+     margin-bottom: 0;
+ }
+
+ .form-group-custom.full-width {
+     grid-column: span 2;
+     margin-top: 0;
+ }
+
+ .input-icon-custom {
+     position: absolute;
+     right: 15px;
+     color: rgba(55, 121, 255, 0.6);
+     font-size: 1rem;
+     pointer-events: none;
+     transition: 0.3s;
+     z-index: 1;
+ }
+
+ .form-group-custom input,
+ .form-group-custom textarea {
+     width: 100%;
+     direction: rtl;
+     padding: 0.9rem 3rem 0.9rem 1rem;
+     background: rgba(26, 37, 48, 0.5);
+     backdrop-filter: blur(4px);
+     border: 1px solid rgba(55, 121, 255, 0.2);
+     border-radius: 16px;
+     color: #ffffff;
+     font-size: 0.9rem;
+     font-family: inherit;
+     transition: all 0.3s ease;
+ }
+
+ .form-group-custom textarea {
+     resize: vertical;
+     min-height: 100px;
+ }
+
+ .form-group-custom input:focus,
+ .form-group-custom textarea:focus {
+     outline: none;
+     border-color: rgba(55, 121, 255, 0.85);
+     background: rgba(26, 37, 48, 0.7);
+     box-shadow: 0 0 0 3px rgba(55, 121, 255, 0.1);
+ }
+
+ .form-group-custom input:focus+.input-icon-custom,
+ .form-group-custom textarea:focus+.input-icon-custom {
+     color: rgba(55, 121, 255, 0.85);
+     transform: scale(1.05);
+ }
+
+ .form-group-custom input::placeholder,
+ .form-group-custom textarea::placeholder {
+     color: rgba(255, 255, 255, 0.4);
+ }
+
+ /* دکمه ارسال */
+ .custom-submit-btn {
+     width: 100%;
+     background: linear-gradient(135deg, rgba(55, 121, 255, 0.85), rgba(35, 90, 200, 0.9));
+     border: 1px solid rgba(255, 255, 255, 0.15);
+     padding: 1rem;
+     border-radius: 16px;
+     color: white;
+     font-size: 1rem;
+     font-weight: 550;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 10px;
+     font-family: inherit;
+     margin-top: 1.5rem;
+     backdrop-filter: blur(4px);
+     box-shadow: 0 4px 15px rgba(55, 121, 255, 0.2);
+ }
+
+ .custom-submit-btn:hover {
+     transform: translateY(-2px);
+     box-shadow: 0 8px 25px rgba(55, 121, 255, 0.4);
+     gap: 15px;
+     border-color: rgba(255, 255, 255, 0.25);
+ }
+
+ /* فوتر فرم */
+ .form-footer-custom {
+     text-align: center;
+     margin-top: 1.5rem;
+     padding-top: 1rem;
+     border-top: 1px solid rgba(255, 255, 255, 0.08);
+     display: flex;
+     justify-content: space-between;
+     flex-wrap: wrap;
+     gap: 1rem;
+ }
+
+ .form-footer-custom p {
+     color: rgba(255, 255, 255, 0.5);
+     font-size: 0.7rem;
+ }
+
+ .form-footer-custom i {
+     color: rgba(55, 121, 255, 0.6);
+     margin-left: 5px;
+ }
+
+ /* پیام موفقیت */
+ .custom-success-message {
+     background: rgba(20, 27, 36, 0.6);
+     backdrop-filter: blur(16px);
+     border: 1px solid rgba(55, 121, 255, 0.3);
+     border-radius: 24px;
+     padding: 2rem;
+     text-align: center;
+     display: none;
+ }
+
+ .custom-success-message i {
+     font-size: 3rem;
+     color: rgba(55, 121, 255, 0.85);
+     margin-bottom: 1rem;
+     display: inline-block;
+ }
+
+ .custom-success-message h3 {
+     color: #ffffff;
+     font-size: 1.2rem;
+     margin-bottom: 0.5rem;
+ }
+
+ .custom-success-message p {
+     color: #cbd5e1;
+     font-size: 0.85rem;
+     margin-bottom: 0.5rem;
+ }
+
+ .custom-success-message .small-text {
+     color: #9aa9b8;
+     font-size: 0.75rem;
+ }
+
+ /* خطاها */
+ .custom-form-error {
+     background: rgba(255, 68, 68, 0.2);
+     backdrop-filter: blur(8px);
+     border: 1px solid rgba(255, 68, 68, 0.3);
+     border-radius: 12px;
+     padding: 0.8rem 1rem;
+     margin-bottom: 1rem;
+     color: #ff8888;
+     font-size: 0.85rem;
+     display: none;
+ }
+
+ /* دکمه بازکننده تقویم */
+ .datepicker-btn {
+     position: absolute;
+     left: 15px;
+     background: rgba(55, 121, 255, 0.2);
+     border: none;
+     width: 32px;
+     height: 32px;
+     border-radius: 8px;
+     cursor: pointer;
+     color: rgba(55, 121, 255, 0.85);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: all 0.2s ease;
+ }
+
+ .datepicker-btn:hover {
+     background: rgba(55, 121, 255, 0.4);
+     transform: scale(1.05);
+ }
+
+ /* مودال تقویم شمسی */
+ .datepicker-modal {
+     position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background: rgba(0, 0, 0, 0.85);
+     backdrop-filter: blur(8px);
+     z-index: 9999;
+     display: none;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .datepicker-modal.active {
+     display: flex;
+ }
+
+ .datepicker-modal-content {
+     background: #141b24;
+     border-radius: 28px;
+     width: 90%;
+     max-width: 380px;
+     border: 1px solid rgba(55, 121, 255, 0.3);
+     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+     overflow: hidden;
+ }
+
+ .datepicker-modal-header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 1rem 1.5rem;
+     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+ }
+
+ .datepicker-modal-header h3 {
+     color: #ffffff;
+     font-size: 1.1rem;
+ }
+
+ .datepicker-close {
+     background: none;
+     border: none;
+     color: #9aa9b8;
+     font-size: 1.2rem;
+     cursor: pointer;
+     width: 32px;
+     height: 32px;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .datepicker-close:hover {
+     background: rgba(255, 255, 255, 0.1);
+     color: rgba(55, 121, 255, 0.85);
+ }
+
+ .datepicker-body {
+     padding: 1rem;
+ }
+
+ .datepicker-header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin-bottom: 1rem;
+ }
+
+ .datepicker-nav {
+     background: rgba(55, 121, 255, 0.15);
+     border: none;
+     width: 32px;
+     height: 32px;
+     border-radius: 50%;
+     cursor: pointer;
+     color: rgba(55, 121, 255, 0.85);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .datepicker-nav:hover {
+     background: rgba(55, 121, 255, 0.35);
+ }
+
+ .datepicker-month-year {
+     color: #ffffff;
+     font-size: 1rem;
+     font-weight: 600;
+ }
+
+ .datepicker-weekdays {
+     display: grid;
+     grid-template-columns: repeat(7, 1fr);
+     text-align: center;
+     margin-bottom: 0.8rem;
+     color: #9aa9b8;
+     font-size: 0.75rem;
+     padding: 0.5rem 0;
+ }
+
+ .datepicker-days {
+     display: grid;
+     grid-template-columns: repeat(7, 1fr);
+     gap: 6px;
+ }
+
+ .datepicker-day {
+     aspect-ratio: 1;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     background: #1a2530;
+     border-radius: 10px;
+     cursor: pointer;
+     color: #e0e0e0;
+     font-size: 0.85rem;
+     transition: 0.2s;
+ }
+
+ .datepicker-day:hover {
+     background: rgba(55, 121, 255, 0.3);
+ }
+
+ .datepicker-day.selected {
+     background: rgba(55, 121, 255, 0.85);
+     color: white;
+ }
+
+ .datepicker-day.other-month {
+     opacity: 0.35;
+ }
+
+ .datepicker-footer {
+     display: flex;
+     gap: 0.8rem;
+     padding: 1rem;
+     border-top: 1px solid rgba(255, 255, 255, 0.1);
+ }
+
+ .datepicker-confirm,
+ .datepicker-cancel {
+     flex: 1;
+     padding: 0.6rem;
+     border-radius: 12px;
+     font-size: 0.85rem;
+     font-weight: 600;
+     cursor: pointer;
+     transition: 0.2s;
+     font-family: inherit;
+ }
+
+ .datepicker-confirm {
+     background: linear-gradient(135deg, rgba(55, 121, 255, 0.85), rgba(35, 90, 200, 0.9));
+     border: none;
+     color: white;
+ }
+
+ .datepicker-confirm:hover {
+     transform: translateY(-2px);
+ }
+
+ .datepicker-cancel {
+     background: rgba(255, 255, 255, 0.1);
+     border: 1px solid rgba(255, 255, 255, 0.15);
+     color: #9aa9b8;
+ }
+
+ .datepicker-cancel:hover {
+     background: rgba(255, 255, 255, 0.15);
+ }
+
+ /* دکمه بازکننده تقویم */
+ .datepicker-btn {
+     position: absolute;
+     left: 15px;
+     background: rgba(55, 121, 255, 0.2);
+     border: none;
+     width: 32px;
+     height: 32px;
+     border-radius: 8px;
+     cursor: pointer;
+     color: rgba(55, 121, 255, 0.85);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: all 0.2s ease;
+ }
+
+ .datepicker-btn:hover {
+     background: rgba(55, 121, 255, 0.4);
+ }
+
+ /* ==================== فوتر سایت ==================== */
+ .site-footer {
+     background: linear-gradient(180deg, #0d1218 0%, #070b0f 100%);
+     border-top: 1px solid rgba(55, 121, 255, 0.15);
+     padding: 4rem 0 1.5rem;
+     margin-top: 3rem;
+     position: relative;
+ }
+
+ .site-footer::before {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     height: 1px;
+     background: linear-gradient(90deg, transparent, rgba(55, 121, 255, 0.4), transparent);
+ }
+
+ /* گرید فوتر */
+ .footer-grid {
+     display: grid;
+     grid-template-columns: repeat(4, 1fr);
+     gap: 2rem;
+     margin-bottom: 3rem;
+ }
+
+ /* ستون‌های فوتر */
+ .footer-col {
+     display: flex;
+     flex-direction: column;
+     gap: 1rem;
+ }
+
+ /* برند */
+ .footer-brand {
+     display: flex;
+     align-items: center;
+     gap: 8px;
+     font-size: 1.5rem;
+     font-weight: 800;
+     color: #ffffff;
+     margin-bottom: 0.5rem;
+ }
+
+ .footer-brand i {
+     color: rgba(55, 121, 255, 0.85);
+     font-size: 1.8rem;
+ }
+
+ .footer-brand span {
+     background: linear-gradient(135deg, #ffffff, #cbd5e1);
+     -webkit-background-clip: text;
+     background-clip: text;
+     -webkit-text-fill-color: transparent;
+ }
+
+ /* توضیحات */
+ .footer-description {
+     color: #9aa9b8;
+     font-size: 0.85rem;
+     line-height: 1.8;
+     margin-bottom: 0.5rem;
+ }
+
+ /* عنوان ستون */
+ .footer-title {
+     color: #ffffff;
+     font-size: 1rem;
+     font-weight: 700;
+     margin-bottom: 0.5rem;
+     position: relative;
+     display: inline-block;
+     padding-bottom: 0.5rem;
+ }
+
+ .footer-title::after {
+     content: '';
+     position: absolute;
+     bottom: 0;
+     right: 0;
+     width: 40px;
+     height: 2px;
+     background: rgba(55, 121, 255, 0.85);
+     border-radius: 2px;
+ }
+
+ /* لینک‌های مفید */
+ .footer-links {
+     list-style: none;
+     display: flex;
+     flex-direction: column;
+     gap: 0.8rem;
+ }
+
+ .footer-links li a {
+     color: #9aa9b8;
+     text-decoration: none;
+     font-size: 0.85rem;
+     transition: all 0.3s ease;
+     display: inline-flex;
+     align-items: center;
+     gap: 8px;
+ }
+
+ .footer-links li a i {
+     font-size: 0.7rem;
+     transition: 0.3s;
+ }
+
+ .footer-links li a:hover {
+     color: rgba(55, 121, 255, 0.85);
+     transform: translateX(-3px);
+ }
+
+ .footer-links li a:hover i {
+     transform: translateX(-3px);
+ }
+
+ /* اطلاعات تماس */
+ .footer-contact {
+     list-style: none;
+     display: flex;
+     flex-direction: column;
+     gap: 0.8rem;
+ }
+
+ .footer-contact li {
+     color: #9aa9b8;
+     font-size: 0.85rem;
+     display: flex;
+     align-items: center;
+     gap: 10px;
+ }
+
+ .footer-contact li i {
+     width: 24px;
+     color: rgba(55, 121, 255, 0.85);
+     font-size: 0.9rem;
+ }
+
+ /* ساعت کاری */
+ .footer-hours {
+     list-style: none;
+     display: flex;
+     flex-direction: column;
+     gap: 0.8rem;
+ }
+
+ .footer-hours li {
+     display: flex;
+     justify-content: space-between;
+     color: #9aa9b8;
+     font-size: 0.85rem;
+ }
+
+ .footer-hours li span:first-child {
+     font-weight: 500;
+ }
+
+ .footer-hours li span:last-child {
+     color: #cbd5e1;
+ }
+
+ /* نشان پشتیبانی */
+ .footer-badge {
+     display: inline-flex;
+     align-items: center;
+     gap: 8px;
+     background: rgba(55, 121, 255, 0.15);
+     padding: 0.4rem 1rem;
+     border-radius: 40px;
+     font-size: 0.75rem;
+     color: rgba(55, 121, 255, 0.85);
+     width: fit-content;
+     margin-top: 0.5rem;
+ }
+
+ /* شبکه‌های اجتماعی */
+ .footer-social {
+     display: flex;
+     gap: 1rem;
+     margin-top: 0.5rem;
+ }
+
+ .social-link {
+     width: 36px;
+     height: 36px;
+     background: rgba(55, 121, 255, 0.15);
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     color: rgba(55, 121, 255, 0.85);
+     transition: all 0.3s ease;
+     text-decoration: none;
+ }
+
+ .social-link:hover {
+     background: rgba(55, 121, 255, 0.35);
+     transform: translateY(-3px);
+     color: white;
+ }
+
+ /* پایین فوتر */
+ .footer-bottom {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     flex-wrap: wrap;
+     gap: 1rem;
+     padding-top: 1.5rem;
+     border-top: 1px solid rgba(255, 255, 255, 0.08);
+ }
+
+ .footer-copyright p {
+     color: #6c7a89;
+     font-size: 0.75rem;
+ }
+
+ .footer-copyright strong {
+     color: rgba(55, 121, 255, 0.85);
+     font-weight: 600;
+ }
+
+ .footer-bottom-links {
+     display: flex;
+     gap: 1.5rem;
+ }
+
+ .footer-bottom-links a {
+     color: #6c7a89;
+     text-decoration: none;
+     font-size: 0.75rem;
+     transition: 0.3s;
+ }
+
+ .footer-bottom-links a:hover {
+     color: rgba(55, 121, 255, 0.85);
+ }
+
+ /* منوی موبایل */
+ @media (max-width: 992px) {
+     .navbar-collapse {
+         position: fixed;
+         top: 70px;
+         right: -100%;
+         width: 280px;
+         height: calc(100vh - 70px);
+         background: #0f151c;
+         flex-direction: column;
+         padding: 2rem 1.5rem;
+         transition: 0.3s ease;
+         z-index: 1000;
+         border-radius: 20px 0 0 20px;
+         box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+     }
+
+     .navbar-collapse.show {
+         right: 0;
+     }
+
+     .burger-menu {
+         display: flex;
+     }
+
+     .navbar-nav {
+         flex-direction: column;
+         width: 100%;
+         gap: 0.8rem;
+     }
+
+     .btn-reserve {
+         margin-top: 1rem;
+         width: fit-content;
+     }
+
+     .container {
+         justify-content: space-between;
+         padding: 0 15px;
+     }
+
+     .navbar-brand {
+         font-size: 1.3rem;
+     }
+
+     .navbar-brand i {
+         font-size: 1.4rem;
+     }
+ }
+
+ @media (max-width: 576px) {
+     .navbar-brand {
+         font-size: 1.1rem;
+     }
+
+     .navbar-brand i {
+         font-size: 1.2rem;
+     }
+
+     .btn-reserve {
+         padding: 0.4rem 1rem;
+         font-size: 0.8rem;
+     }
+
+     .burger-menu span {
+         width: 22px;
+         height: 2px;
+     }
+ }
+
+ /* اسلایدر اصلی - ریسپانسیو */
+ @media (max-width: 992px) {
+     .full-width-slider {
+         margin-top: 65px;
+     }
+
+     .mainSwiper {
+         height: 420px;
+         width: 95%;
+         border-radius: 20px;
+     }
+
+     .header-wrapper {
+         height: auto;
+         min-height: 600px;
+     }
+ }
+
+ @media (max-width: 768px) {
+     .full-width-slider {
+         margin-top: 60px;
+     }
+
+     .mainSwiper {
+         height: 350px;
+     }
+
+     .header-wrapper {
+         min-height: 500px;
+     }
+
+     .slide-overlay {
+         padding: 1rem;
+     }
+
+     .slide-overlay h2 {
+         font-size: 1.2rem;
+     }
+
+     .slide-overlay p {
+         font-size: 0.7rem;
+         max-width: 100%;
+     }
+
+     .swiper-button-next,
+     .swiper-button-prev {
+         width: 30px;
+         height: 30px;
+     }
+
+     .swiper-button-next:after,
+     .swiper-button-prev:after {
+         font-size: 0.9rem;
+     }
+ }
+
+ @media (max-width: 576px) {
+     .mainSwiper {
+         height: 250px;
+         border-radius: 15px;
+     }
+
+     .header-wrapper {
+         min-height: 420px;
+     }
+
+     .swiper-button-next,
+     .swiper-button-prev {
+         display: none;
+     }
+ }
+
+ /* کارت دکمه‌ها - ریسپانسیو */
+ @media (max-width: 992px) {
+     .cards-grid {
+         gap: 1rem;
+         margin-top: 1rem;
+     }
+
+     .stats-card-btn {
+         width: 100px;
+         padding: 0.8rem 0.3rem;
+         border-radius: 18px;
+     }
+
+     .stats-card-btn i {
+         font-size: 1.5rem;
+     }
+
+     .stats-card-btn .detail {
+         font-size: 0.7rem;
+     }
+ }
+
+ @media (max-width: 768px) {
+     .cards-grid {
+         gap: 0.8rem;
+     }
+
+     .stats-card-btn {
+         width: 85px;
+         padding: 0.6rem 0.2rem;
+         border-radius: 16px;
+     }
+
+     .stats-card-btn i {
+         font-size: 1.3rem;
+         margin-bottom: 4px;
+     }
+
+     .stats-card-btn .detail {
+         font-size: 0.65rem;
+     }
+ }
+
+ @media (max-width: 576px) {
+     .cards-grid {
+         gap: 0.6rem;
+     }
+
+     .stats-card-btn {
+         width: 70px;
+         padding: 0.5rem 0.1rem;
+         border-radius: 14px;
+     }
+
+     .stats-card-btn i {
+         font-size: 1.1rem;
+     }
+
+     .stats-card-btn .detail {
+         font-size: 0.55rem;
+     }
+ }
+
+ /* تایتل تقویم - ریسپانسیو */
+ @media (max-width: 768px) {
+     .calendar-title-modern {
+         margin: 20px 0;
+     }
+
+     .calendar-title-modern h2 {
+         font-size: 1.3rem;
+     }
+
+     .calendar-title-modern h2 i {
+         font-size: 1.4rem;
+     }
+ }
+
+ @media (max-width: 576px) {
+     .calendar-title-modern h2 {
+         font-size: 1.1rem;
+     }
+
+     .calendar-title-modern h2 i {
+         font-size: 1.2rem;
+     }
+ }
+
+ /* ======================================== */
+ /* بخش تقویم - ریسپانسیو کامل */
+ /* ======================================== */
+
+ /* تبلت */
+ @media (max-width: 992px) {
+     .reservation-container {
+         padding: 0 20px;
+         gap: 1.5rem;
+     }
+
+     .calendar-section {
+         min-width: auto;
+         padding: 1.5rem;
+     }
+
+     .calendar-days {
+         gap: 6px;
+     }
+
+     .calendar-day {
+         font-size: 0.85rem;
+     }
+ }
+
+ /* موبایل */
+ @media (max-width: 768px) {
+     .reservation-container {
+         flex-direction: column;
+         padding: 0 15px;
+         gap: 1.5rem;
+     }
+
+     /* بخش اطلاعات سمت راست */
+     .info-section {
+         text-align: center;
+         padding: 1.2rem;
+         border-radius: 24px;
+         width: 100%;
+     }
+
+     .info-badge {
+         margin: 0 auto 1rem auto;
+     }
+
+     .info-section h1 {
+         font-size: 1.3rem;
+     }
+
+     .info-desc {
+         font-size: 0.8rem;
+         line-height: 1.6;
+     }
+
+     .features-list li {
+         justify-content: center;
+         gap: 8px;
+         font-size: 0.8rem;
+     }
+
+     .features-list li i {
+         width: 24px;
+         height: 24px;
+         font-size: 0.7rem;
+     }
+
+     .info-footer p {
+         font-size: 0.7rem;
+     }
+
+     /* بخش تقویم */
+     .calendar-section {
+         width: 100%;
+         padding: 1rem;
+         border-radius: 20px;
+         min-width: auto;
+     }
+
+     /* هدر تقویم */
+     .calendar-header {
+         margin-bottom: 1rem;
+         padding-bottom: 0.5rem;
+     }
+
+     .current-month-year {
+         font-size: 1.1rem;
+     }
+
+     .month-nav-btn {
+         width: 32px;
+         height: 32px;
+         font-size: 0.9rem;
+     }
+
+     /* روزهای هفته */
+     .weekdays span {
+         font-size: 0.7rem;
+         padding: 0.3rem 0;
+     }
+
+     /* روزهای ماه */
+     .calendar-days {
+         gap: 4px;
+     }
+
+     .calendar-day {
+         font-size: 0.7rem;
+         border-radius: 10px;
+         min-height: 35px;
+     }
+ }
+
+ /* موبایل کوچک */
+ @media (max-width: 576px) {
+     .reservation-container {
+         padding: 0 12px;
+         gap: 1rem;
+     }
+
+     .info-section {
+         padding: 1rem;
+         border-radius: 20px;
+     }
+
+     .info-section h1 {
+         font-size: 1.1rem;
+     }
+
+     .info-desc {
+         font-size: 0.75rem;
+     }
+
+     .features-list li {
+         font-size: 0.7rem;
+         gap: 6px;
+     }
+
+     .features-list li i {
+         width: 20px;
+         height: 20px;
+         font-size: 0.6rem;
+     }
+
+     .calendar-section {
+         padding: 0.8rem;
+         border-radius: 18px;
+     }
+
+     .current-month-year {
+         font-size: 1rem;
+     }
+
+     .month-nav-btn {
+         width: 28px;
+         height: 28px;
+         font-size: 0.8rem;
+     }
+
+     .weekdays span {
+         font-size: 0.65rem;
+     }
+
+     .calendar-days {
+         gap: 3px;
+     }
+
+     .calendar-day {
+         font-size: 0.65rem;
+         border-radius: 8px;
+         min-height: 32px;
+     }
+ }
+
+ /* ======================================== */
+ /* ریسپانسیو اسلایدر تقویم - راه حل کامل */
+ /* ======================================== */
+
+ /* تنظیم پایه برای Swiper تقویم */
+ .swiper-calendar {
+     width: 100%;
+     overflow: hidden;
+ }
+
+ .swiper-calendar .swiper-wrapper {
+     transition-timing-function: ease-out;
+ }
+
+ .swiper-calendar .swiper-slide {
+     width: 100% !important;
+     flex-shrink: 0;
+ }
+
+ /* دسکتاپ */
+ @media (min-width: 992px) {
+     .swiper-calendar .swiper-slide {
+         width: 100% !important;
+     }
+ }
+
+ /* تبلت و موبایل */
+ @media (max-width: 991px) {
+     .swiper-calendar .swiper-slide {
+         width: 100% !important;
+     }
+ }
+
+ /* تنظیمات اصلی تقویم برای تمام صفحات */
+ .calendar-section {
+     overflow: hidden;
+ }
+
+ .calendar-days {
+     display: grid;
+     grid-template-columns: repeat(7, 1fr);
+     gap: 8px;
+     width: 100%;
+ }
+
+ .calendar-day {
+     aspect-ratio: 1;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     text-align: center;
+     min-width: 0;
+ }
+
+ /* موبایل */
+ @media (max-width: 768px) {
+     .calendar-days {
+         gap: 4px;
+     }
+
+     .calendar-day {
+         font-size: 0.7rem;
+         border-radius: 8px;
+     }
+ }
+
+ @media (max-width: 576px) {
+     .calendar-days {
+         gap: 3px;
+     }
+
+     .calendar-day {
+         font-size: 0.65rem;
+         min-height: 32px;
+     }
+ }
+
+ @media (max-width: 400px) {
+     .calendar-days {
+         gap: 2px;
+     }
+
+     .calendar-day {
+         font-size: 0.6rem;
+         min-height: 28px;
+     }
+ }
+
+ /* برای موبایل‌های خیلی کوچک (مکس 400px) */
+ @media (max-width: 400px) {
+     .calendar-days {
+         gap: 2px;
+     }
+
+     .calendar-day {
+         font-size: 0.6rem;
+         min-height: 28px;
+     }
+
+     .weekdays span {
+         font-size: 0.6rem;
+     }
+
+     .current-month-year {
+         font-size: 0.9rem;
+     }
+
+     .month-nav-btn {
+         width: 26px;
+         height: 26px;
+         font-size: 0.7rem;
+     }
+
+     .info-section h1 {
+         font-size: 1rem;
+     }
+
+     .features-list li {
+         font-size: 0.65rem;
+     }
+ }
+
+ /* ======================================== */
+ /* بخش نظرات مشتریان - فقط یک نظر در هر اسلاید */
+ /* ======================================== */
+
+ .testimonials-section {
+     padding: 4rem 0;
+     background: linear-gradient(180deg, #0a0f14 0%, #0d1218 100%);
+     position: relative;
+     overflow: hidden;
+ }
+
+ .testimonials-section::before {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     height: 1px;
+     background: linear-gradient(90deg, transparent, rgba(55, 121, 255, 0.3), transparent);
+ }
+
+ .testimonials-wrapper {
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 0 20px;
+     width: 100%;
+     box-sizing: border-box;
+ }
+
+ .testimonials-header {
+     text-align: center;
+     margin-bottom: 2rem;
+ }
+
+ .testimonials-title {
+     font-size: 2rem;
+     font-weight: 800;
+     color: #ffffff;
+     margin-bottom: 0.8rem;
+ }
+
+ .testimonials-title span {
+     background: linear-gradient(135deg, rgba(55, 121, 255, 0.85), rgba(35, 90, 200, 0.9));
+     -webkit-background-clip: text;
+     background-clip: text;
+     -webkit-text-fill-color: transparent;
+ }
+
+ .testimonials-subtitle {
+     color: #9aa9b8;
+     font-size: 0.95rem;
+ }
+
+ /* کانتینر اسلایدر */
+ .testimonials-slider-container {
+     position: relative;
+     width: 100%;
+     overflow: hidden;
+ }
+
+ /* تنظیمات Swiper - در تمام سایزها فقط یک اسلاید */
+ .testimonialsSwiper {
+     width: 100%;
+     overflow: hidden;
+ }
+
+ .testimonialsSwiper .swiper-wrapper {
+     display: flex;
+     align-items: stretch;
+ }
+
+ .testimonialsSwiper .swiper-slide {
+     width: 100% !important;
+     height: auto;
+     display: flex;
+     flex-shrink: 0;
+     box-sizing: border-box;
+ }
+
+ /* کارت نظرات */
+ .testimonial-card {
+     background: #141b24;
+     border-radius: 24px;
+     padding: 2rem;
+     border: 1px solid rgba(255, 255, 255, 0.05);
+     transition: all 0.3s ease;
+     position: relative;
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+     height: 100%;
+     display: flex;
+     flex-direction: column;
+     width: 100%;
+     box-sizing: border-box;
+ }
+
+ .testimonial-card:hover {
+     transform: translateY(-5px);
+     border-color: rgba(55, 121, 255, 0.3);
+     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+ }
+
+ .testimonial-quote {
+     position: absolute;
+     top: 20px;
+     right: 20px;
+     opacity: 0.15;
+     font-size: 3rem;
+     color: rgba(55, 121, 255, 0.85);
+ }
+
+ .testimonial-rating {
+     margin-bottom: 1.2rem;
+     display: flex;
+     gap: 4px;
+     direction: ltr;
+ }
+
+ .testimonial-rating i {
+     color: #fbbf24;
+     font-size: 0.9rem;
+ }
+
+ .testimonial-text {
+     color: #cbd5e1;
+     font-size: 0.95rem;
+     line-height: 1.8;
+     margin-bottom: 1.5rem;
+     flex: 1;
+     word-wrap: break-word;
+     overflow-wrap: break-word;
+ }
+
+ .testimonial-author {
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     border-top: 1px solid rgba(255, 255, 255, 0.08);
+     padding-top: 1rem;
+ }
+
+ .author-avatar i {
+     font-size: 2.5rem;
+     color: rgba(55, 121, 255, 0.6);
+ }
+
+ .author-info h4 {
+     color: #ffffff;
+     font-size: 1rem;
+     font-weight: 700;
+     margin-bottom: 4px;
+ }
+
+ .author-info span {
+     color: #9aa9b8;
+     font-size: 0.7rem;
+ }
+
+ /* دکمه‌های ناوبری */
+ .testimonials-nav {
+     display: flex;
+     justify-content: center;
+     gap: 1rem;
+     margin-top: 2rem;
+ }
+
+ .testimonial-prev,
+ .testimonial-next {
+     width: 44px;
+     height: 44px;
+     background: rgba(55, 121, 255, 0.15);
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     color: rgba(55, 121, 255, 0.85);
+     font-size: 1.2rem;
+ }
+
+ .testimonial-prev:hover,
+ .testimonial-next:hover {
+     background: rgba(55, 121, 255, 0.35);
+     transform: scale(1.05);
+ }
+
+ /* Pagination */
+ .testimonials-pagination {
+     position: relative;
+     margin-top: 1.5rem;
+     text-align: center;
+ }
+
+ .testimonials-pagination .swiper-pagination-bullet {
+     width: 8px;
+     height: 8px;
+     background: #9aa9b8;
+     opacity: 0.5;
+     margin: 0 4px;
+     border-radius: 50%;
+     display: inline-block;
+ }
+
+ .testimonials-pagination .swiper-pagination-bullet-active {
+     background: rgba(55, 121, 255, 0.85);
+     opacity: 1;
+     width: 24px;
+     border-radius: 4px;
+ }
+
+ /* ======= ریسپانسیو ======= */
+
+ /* تبلت و دسکتاپ */
+ @media (min-width: 768px) {
+     .testimonials-wrapper {
+         max-width: 800px;
+     }
+
+     .testimonial-card {
+         padding: 1.8rem;
+     }
+
+     .testimonial-text {
+         font-size: 0.9rem;
+     }
+ }
+
+ /* موبایل بزرگ */
+ @media (max-width: 767px) {
+     .testimonials-section {
+         padding: 2.5rem 0;
+     }
+
+     .testimonials-title {
+         font-size: 1.4rem;
+     }
+
+     .testimonials-subtitle {
+         font-size: 0.8rem;
+     }
+
+     .testimonials-wrapper {
+         padding: 0 15px;
+     }
+
+     .testimonial-card {
+         padding: 1.2rem;
+         border-radius: 20px;
+     }
+
+     .testimonial-text {
+         font-size: 0.8rem;
+         line-height: 1.6;
+     }
+
+     .testimonial-quote {
+         font-size: 1.8rem;
+         top: 12px;
+         right: 12px;
+     }
+
+     .author-avatar i {
+         font-size: 2rem;
+     }
+
+     .author-info h4 {
+         font-size: 0.85rem;
+     }
+
+     .author-info span {
+         font-size: 0.6rem;
+     }
+
+     .testimonial-prev,
+     .testimonial-next {
+         width: 36px;
+         height: 36px;
+         font-size: 1rem;
+     }
+ }
+
+ /* موبایل متوسط */
+ @media (max-width: 550px) {
+     .testimonials-title {
+         font-size: 1.2rem;
+     }
+
+     .testimonials-subtitle {
+         font-size: 0.7rem;
+     }
+
+     .testimonials-wrapper {
+         padding: 0 12px;
+     }
+
+     .testimonial-card {
+         padding: 1rem;
+         border-radius: 18px;
+     }
+
+     .testimonial-text {
+         font-size: 0.75rem;
+         line-height: 1.5;
+     }
+
+     .testimonial-quote {
+         font-size: 1.3rem;
+         top: 8px;
+         right: 8px;
+     }
+
+     .testimonial-rating i {
+         font-size: 0.7rem;
+     }
+
+     .author-avatar i {
+         font-size: 1.6rem;
+     }
+
+     .author-info h4 {
+         font-size: 0.8rem;
+     }
+
+     .author-info span {
+         font-size: 0.55rem;
+     }
+
+     .testimonial-prev,
+     .testimonial-next {
+         width: 32px;
+         height: 32px;
+         font-size: 0.9rem;
+     }
+ }
+
+ /* موبایل کوچک */
+ @media (max-width: 400px) {
+     .testimonials-title {
+         font-size: 1rem;
+     }
+
+     .testimonials-subtitle {
+         font-size: 0.65rem;
+     }
+
+     .testimonials-wrapper {
+         padding: 0 10px;
+     }
+
+     .testimonial-card {
+         padding: 0.8rem;
+         border-radius: 16px;
+     }
+
+     .testimonial-text {
+         font-size: 0.7rem;
+         line-height: 1.5;
+         margin-bottom: 0.8rem;
+     }
+
+     .testimonial-quote {
+         font-size: 1rem;
+         top: 6px;
+         right: 6px;
+     }
+
+     .testimonial-rating {
+         margin-bottom: 0.5rem;
+     }
+
+     .testimonial-rating i {
+         font-size: 0.6rem;
+     }
+
+     .author-avatar i {
+         font-size: 1.3rem;
+     }
+
+     .author-info h4 {
+         font-size: 0.7rem;
+     }
+
+     .author-info span {
+         font-size: 0.5rem;
+     }
+
+     .testimonial-prev,
+     .testimonial-next {
+         width: 28px;
+         height: 28px;
+         font-size: 0.8rem;
+     }
+ }
+
+ /* موبایل خیلی کوچک */
+ @media (max-width: 340px) {
+     .testimonial-card {
+         padding: 0.7rem;
+     }
+
+     .testimonial-text {
+         font-size: 0.65rem;
+     }
+
+     .author-avatar i {
+         font-size: 1.1rem;
+     }
+
+     .author-info h4 {
+         font-size: 0.65rem;
+     }
+
+     .author-info span {
+         font-size: 0.45rem;
+     }
+ }
+
+ /* دانستنی سفر - ریسپانسیو */
+ @media (max-width: 992px) {
+     .travel-tips-section {
+         padding: 3rem 0;
+     }
+
+     .travel-tips-title {
+         font-size: 1.5rem;
+     }
+
+     .travel-tips-subtitle {
+         font-size: 0.85rem;
+     }
+
+     .tips-tab-btn {
+         padding: 0.5rem 1rem;
+         font-size: 0.8rem;
+     }
+ }
+
+ @media (max-width: 768px) {
+     .travel-tips-section {
+         padding: 2rem 0;
+     }
+
+     .travel-tips-title {
+         font-size: 1.3rem;
+     }
+
+     .travel-tips-tabs {
+         gap: 0.5rem;
+         margin-bottom: 1.5rem;
+     }
+
+     .tips-tab-btn {
+         padding: 0.4rem 0.8rem;
+         font-size: 0.7rem;
+         gap: 4px;
+     }
+
+     .tips-tab-btn i {
+         font-size: 0.7rem;
+     }
+
+     .travel-tips-content {
+         padding: 1rem;
+         border-radius: 20px;
+     }
+
+     .tips-content-grid {
+         grid-template-columns: 1fr;
+         gap: 1rem;
+     }
+
+     .tips-visual {
+         order: -1;
+         padding: 1rem;
+     }
+
+     .tips-text h3 {
+         font-size: 1rem;
+         margin-bottom: 0.8rem;
+     }
+
+     .tips-list li {
+         font-size: 0.75rem;
+         gap: 8px;
+     }
+
+     .tips-list li i {
+         width: 18px;
+         font-size: 0.7rem;
+     }
+
+     .visual-icon-tips {
+         font-size: 2rem;
+     }
+
+     .tips-visual-title {
+         font-size: 0.9rem;
+     }
+
+     .tips-visual-desc {
+         font-size: 0.7rem;
+         margin-bottom: 0.8rem;
+     }
+
+     .tips-badge {
+         font-size: 0.6rem;
+         padding: 0.2rem 0.6rem;
+     }
+ }
+
+ /* پشتیبانی - ریسپانسیو */
+ @media (max-width: 992px) {
+     .support-section {
+         padding: 3rem 0;
+     }
+
+     .support-wrapper {
+         grid-template-columns: 1fr;
+         gap: 1.5rem;
+     }
+
+     .support-info {
+         padding-right: 0;
+         text-align: center;
+     }
+
+     .support-features {
+         align-items: center;
+     }
+
+     .support-feature {
+         justify-content: center;
+     }
+ }
+
+ @media (max-width: 768px) {
+     .support-section {
+         padding: 2rem 0;
+     }
+
+     .support-title {
+         font-size: 1.4rem;
+     }
+
+     .support-desc {
+         font-size: 0.8rem;
+         margin-bottom: 1rem;
+     }
+
+     .support-feature i {
+         width: 35px;
+         height: 35px;
+         font-size: 1rem;
+     }
+
+     .support-feature h4 {
+         font-size: 0.85rem;
+     }
+
+     .support-feature p {
+         font-size: 0.7rem;
+     }
+
+     .support-form-wrapper {
+         padding: 1.2rem;
+         border-radius: 24px;
+     }
+
+     .form-header i {
+         font-size: 1.8rem;
+     }
+
+     .form-header h3 {
+         font-size: 1rem;
+     }
+
+     .form-header p {
+         font-size: 0.7rem;
+     }
+
+     .form-group input,
+     .form-group textarea {
+         padding: 0.7rem 2.5rem 0.7rem 1rem;
+         font-size: 0.8rem;
+     }
+
+     .submit-btn {
+         padding: 0.7rem;
+         font-size: 0.85rem;
+     }
+ }
+
+ /* تور اختصاصی - ریسپانسیو */
+ @media (max-width: 992px) {
+     .custom-tour-section {
+         padding: 3rem 0;
+     }
+
+     .custom-tour-wrapper {
+         grid-template-columns: 1fr;
+         gap: 1.5rem;
+     }
+
+     .custom-tour-info {
+         padding-right: 0;
+         text-align: center;
+     }
+
+     .custom-tour-features {
+         grid-template-columns: repeat(2, 1fr);
+     }
+ }
+
+ @media (max-width: 768px) {
+     .custom-tour-section {
+         padding: 2rem 0;
+     }
+
+     .custom-tour-title {
+         font-size: 1.4rem;
+     }
+
+     .custom-tour-desc {
+         font-size: 0.8rem;
+         margin-bottom: 1rem;
+     }
+
+     .custom-tour-features {
+         grid-template-columns: 1fr;
+         gap: 0.8rem;
+     }
+
+     .custom-feature {
+         padding: 0.7rem;
+     }
+
+     .custom-feature i {
+         width: 35px;
+         height: 35px;
+         font-size: 1rem;
+     }
+
+     .custom-feature h4 {
+         font-size: 0.8rem;
+     }
+
+     .custom-feature p {
+         font-size: 0.65rem;
+     }
+
+     .custom-tour-form-wrapper {
+         padding: 1.2rem;
+         border-radius: 24px;
+     }
+
+     .form-header-custom i {
+         font-size: 1.8rem;
+     }
+
+     .form-header-custom h3 {
+         font-size: 1rem;
+     }
+
+     .form-header-custom p {
+         font-size: 0.7rem;
+     }
+
+     .form-row {
+         grid-template-columns: 1fr;
+         gap: 0.8rem;
+     }
+
+     .form-group-custom.full-width {
+         grid-column: span 1;
+     }
+
+     .form-group-custom input,
+     .form-group-custom textarea {
+         padding: 0.7rem 2.5rem 0.7rem 1rem;
+         font-size: 0.8rem;
+     }
+
+     .custom-submit-btn {
+         padding: 0.7rem;
+         font-size: 0.85rem;
+     }
+
+     .form-footer-custom {
+         flex-direction: column;
+         gap: 0.5rem;
+         text-align: center;
+     }
+
+     .form-footer-custom p {
+         font-size: 0.6rem;
+     }
+ }
+
+ @media (max-width: 576px) {
+     .custom-tour-title {
+         font-size: 1.2rem;
+     }
+ }
+
+ /* فوتر - ریسپانسیو */
+ @media (max-width: 992px) {
+     .site-footer {
+         padding: 2rem 0 1rem;
+         margin-top: 2rem;
+     }
+
+     .footer-grid {
+         grid-template-columns: repeat(2, 1fr);
+         gap: 1.5rem;
+     }
+ }
+
+ @media (max-width: 768px) {
+     .footer-grid {
+         grid-template-columns: 1fr;
+         gap: 1.5rem;
+         text-align: center;
+     }
+
+     .footer-brand {
+         justify-content: center;
+     }
+
+     .footer-brand span {
+         font-size: 1.3rem;
+     }
+
+     .footer-title::after {
+         right: 50%;
+         transform: translateX(50%);
+     }
+
+     .footer-links li a {
+         justify-content: center;
+     }
+
+     .footer-contact li {
+         justify-content: center;
+         font-size: 0.8rem;
+     }
+
+     .footer-hours li {
+         justify-content: center;
+         gap: 0.5rem;
+         font-size: 0.8rem;
+     }
+
+     .footer-badge {
+         margin: 0 auto;
+     }
+
+     .footer-social {
+         justify-content: center;
+     }
+
+     .footer-bottom {
+         flex-direction: column;
+         text-align: center;
+         gap: 0.8rem;
+         padding-top: 1rem;
+     }
+
+     .footer-bottom-links {
+         justify-content: center;
+         gap: 1rem;
+     }
+
+     .footer-copyright p {
+         font-size: 0.7rem;
+     }
+ }
+
+ /* مودال‌ها - ریسپانسیو */
+ @media (max-width: 768px) {
+     .modal-content {
+         width: 95%;
+         max-width: 350px;
+         padding: 1rem;
+         border-radius: 20px;
+     }
+
+     .modal-header h3 {
+         font-size: 1rem;
+     }
+
+     .tour-item {
+         padding: 0.8rem;
+     }
+
+     .tour-title {
+         font-size: 0.85rem;
+     }
+
+     .tour-desc {
+         font-size: 0.7rem;
+     }
+
+     .reserve-btn {
+         padding: 0.3rem 0.8rem;
+         font-size: 0.7rem;
+     }
+
+     /* مودال تقویم */
+     .datepicker-modal-content {
+         width: 95%;
+         max-width: 320px;
+     }
+
+     .datepicker-weekdays span {
+         font-size: 0.65rem;
+     }
+
+     .datepicker-day {
+         font-size: 0.7rem;
+     }
+
+     .datepicker-nav {
+         width: 28px;
+         height: 28px;
+     }
+
+     .datepicker-month-year {
+         font-size: 0.85rem;
+     }
+
+     .datepicker-footer button {
+         padding: 0.4rem;
+         font-size: 0.7rem;
+     }
+ }

@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>آمادای گشت | سفرهای لوکس و بی‌نظیر</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- منو و منوی همبرگری -->
+    <nav class="custom-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-compass"></i> آمادای گشت
+            </a>
+            <div class="navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link-custom active" data-menu="home" href="app.html">خانه</a></li>
+                    <li class="nav-item"><a class="nav-link-custom" data-menu="gallery" href="#">گالری</a></li>
+                    <li class="nav-item"><a class="nav-link-custom" data-menu="news" href="#">اطلاعیه</a></li>
+                    <li class="nav-item"><a class="nav-link-custom" data-menu="tours" href="#">سفرها</a></li>
+                </ul>
+            </div>
+            <a class="btn-reserve" href="#">رزرو</a>
+            <div class="burger-menu" id="burgerMenu">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+    <!-- هدر سایت -->
+    <div class="header-wrapper">
+        <div class="full-width-slider">
+            <div class="swiper mainSwiper">
+                <div class="swiper-wrapper"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+        <div class="container mt-4 mb-5">
+            <div class="cards-grid" id="dynamicCardsContainer"></div>
+        </div>
+    </div>
+    <!-- تقویم درخواست رزرو -->
+    <div class="calendar-title-modern">
+        <h2>
+            <i class="fas fa-calendar-alt"></i>
+            تقویم <span>سفرهای پیش رو</span>
+        </h2>
+    </div>
+    <!-- متن توضیحی رزرو -->
+    <div class="reservation-container">
+        <!-- سمت راست - متن توضیحی حرفه‌ای -->
+        <div class="info-section">
+            <div class="info-badge">
+                <i class="fas fa-calendar-alt"></i> تقویم رزرو آنلاین
+            </div>
+            <h1>
+                <i class="fas fa-clock"></i>
+                سفر خود را <span class="highlight">برنامه‌ریزی</span> کنید
+            </h1>
+            <p class="info-desc">
+                با استفاده از تقویم هوشمند آمادای گشت، به راحتی تاریخ مورد نظر خود را انتخاب کنید
+                و تورها و سفرهای موجود در آن روز را مشاهده نمایید. برنامه‌ریزی سفر رویایی‌تان
+                تنها با یک کلیک!
+            </p>
+            <ul class="features-list">
+                <li><i class="fas fa-check"></i> مشاهده تورهای فعال هر روز</li>
+                <li><i class="fas fa-check"></i> انتخاب تاریخ و ثبت درخواست رزرو</li>
+                <li><i class="fas fa-check"></i> پشتیبانی ۲۴ ساعته و پاسخگویی سریع</li>
+                <li><i class="fas fa-check"></i> بهترین قیمت‌ها و تخفیف‌های ویژه</li>
+            </ul>
+            <div class="info-footer">
+                <p><i class="fas fa-headset"></i> نیاز به راهنمایی دارید؟ با ما تماس بگیرید: ۰۲۱-۱۲۳۴۵۶۷۸</p>
+            </div>
+        </div>
+
+        <!-- سمت چپ - تقویم رزرو -->
+        <div class="calendar-section">
+            <div class="swiper-calendar">
+                <div class="swiper-wrapper" id="calendarSwiperWrapper"></div>
+                <div class="calendar-header" style="border-bottom: none; margin-top: 20px;">
+                    <button class="month-nav-btn" id="prevMonthBtn"><i class="fas fa-chevron-right"></i></button>
+                    <div class="current-month-year" id="currentMonthDisplay">اردیبهشت ۱۴۰۵</div>
+                    <button class="month-nav-btn" id="nextMonthBtn"><i class="fas fa-chevron-left"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-overlay" id="tourModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalDateTitle"><i class="fas fa-calendar-day"></i> تاریخ انتخاب شده</h3>
+                <button class="close-modal" id="closeModalBtn"><i class="fas fa-times"></i></button>
+            </div>
+            <div id="modalToursList"></div>
+        </div>
+    </div>
+    <!-- ==================== بخش نظرات مشتریان ==================== -->
+    <div class="testimonials-section">
+        <div class="container">
+            <div class="testimonials-wrapper">
+                <div class="testimonials-header">
+                    <h2 class="testimonials-title">
+                        آنچه <span>مهمانان ما</span> می‌گویند
+                    </h2>
+                    <p class="testimonials-subtitle">
+                        تجربه سفر با آمادای گشت از زبان مسافران عزیز
+                    </p>
+                </div>
+
+                <div class="testimonials-slider-container">
+                    <div class="swiper-nz testimonialsSwiper">
+                        <div class="swiper-wrapper">
+                            <!-- نظر 1 -->
+                            <div class="swiper-slide">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-quote">
+                                        <i class="fas fa-quote-right"></i>
+                                    </div>
+                                    <div class="testimonial-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="testimonial-text">
+                                        "از اقامت در ویلای لوکس آمادای گشت واقعاً لذت بردیم. خدمات عالی، محیط آرام و
+                                        چشم‌انداز فوق‌العاده. حتماً دوباره سفرمون رو با آمادای گشت برنامه‌ریزی می‌کنیم."
+                                    </p>
+                                    <div class="testimonial-author">
+                                        <div class="author-avatar">
+                                            <i class="fas fa-user-circle"></i>
+                                        </div>
+                                        <div class="author-info">
+                                            <h4>مهدی کریمی</h4>
+                                            <span>سفر به شمال، اردیبهشت ۱۴۰۵</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- نظر 2 -->
+                            <div class="swiper-slide">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-quote">
+                                        <i class="fas fa-quote-right"></i>
+                                    </div>
+                                    <div class="testimonial-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="testimonial-text">
+                                        "تور همدان گردی با آمادای گشت یه تجربه فراموش‌نشدنی بود. راهنمای عالی،
+                                        برنامه‌ریزی
+                                        دقیق و قیمت مناسب. به همه دوستانم پیشنهاد می‌کنم."
+                                    </p>
+                                    <div class="testimonial-author">
+                                        <div class="author-avatar">
+                                            <i class="fas fa-user-circle"></i>
+                                        </div>
+                                        <div class="author-info">
+                                            <h4>سارا احمدی</h4>
+                                            <span>تور همدان گردی، خرداد ۱۴۰۵</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- نظر 3 -->
+                            <div class="swiper-slide">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-quote">
+                                        <i class="fas fa-quote-right"></i>
+                                    </div>
+                                    <div class="testimonial-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="testimonial-text">
+                                        "اقامتگاه کوهستانی آمادای گشت دقیقاً همون جایی بود که نیاز داشتم. آرامش، هوای
+                                        پاک و
+                                        امکانات عالی. قطعاً دوباره میام."
+                                    </p>
+                                    <div class="testimonial-author">
+                                        <div class="author-avatar">
+                                            <i class="fas fa-user-circle"></i>
+                                        </div>
+                                        <div class="author-info">
+                                            <h4>علی رضایی</h4>
+                                            <span>اقامتگاه کوهستان، فروردین ۱۴۰۵</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- نظر 4 -->
+                            <div class="swiper-slide">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-quote">
+                                        <i class="fas fa-quote-right"></i>
+                                    </div>
+                                    <div class="testimonial-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="testimonial-text">
+                                        "رزرو هتل از طریق آمادای گشت خیلی راحت و سریع انجام شد. پشتیبانی ۲۴ ساعته عالی و
+                                        قیمت‌ها هم خیلی مناسب بود. ممنون از تیم خوبتون."
+                                    </p>
+                                    <div class="testimonial-author">
+                                        <div class="author-avatar">
+                                            <i class="fas fa-user-circle"></i>
+                                        </div>
+                                        <div class="author-info">
+                                            <h4>زهرا محمدی</h4>
+                                            <span>رزرو هتل، اردیبهشت ۱۴۰۵</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- نظر 5 -->
+                            <div class="swiper-slide">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-quote">
+                                        <i class="fas fa-quote-right"></i>
+                                    </div>
+                                    <div class="testimonial-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="testimonial-text">
+                                        "تور کویرگردی با آمادای گشت یه تجربه بی‌نظیر بود. از غروب آفتاب توی کویر تا
+                                        شب‌نشینی
+                                        زیر ستاره‌ها، همه چی عالی بود. دمتون گرم."
+                                    </p>
+                                    <div class="testimonial-author">
+                                        <div class="author-avatar">
+                                            <i class="fas fa-user-circle"></i>
+                                        </div>
+                                        <div class="author-info">
+                                            <h4>رضا حسینی</h4>
+                                            <span>تور کویرگردی، اسفند ۱۴۰۴</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- نظر 6 -->
+                            <div class="swiper-slide">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-quote">
+                                        <i class="fas fa-quote-right"></i>
+                                    </div>
+                                    <div class="testimonial-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="testimonial-text">
+                                        "بومگردی در روستای کندوان رو با آمادای گشت تجربه کردیم. خونه‌های صخره‌ای،
+                                        مهمان‌نوازی بی‌نظیر و غذای محلی عالی. خاطره‌ای که هیچ وقت فراموش نمی‌کنیم."
+                                    </p>
+                                    <div class="testimonial-author">
+                                        <div class="author-avatar">
+                                            <i class="fas fa-user-circle"></i>
+                                        </div>
+                                        <div class="author-info">
+                                            <h4>نازنین مرادی</h4>
+                                            <span>تور بومگردی، فروردین ۱۴۰۵</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination testimonials-pagination"></div>
+                    </div>
+
+                    <!-- دکمه‌های ناوبری -->
+                    <div class="testimonials-nav">
+                        <div class="testimonial-prev"><i class="fas fa-chevron-right"></i></div>
+                        <div class="testimonial-next"><i class="fas fa-chevron-left"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ==================== بخش آلبوم سفرها (اسلایدر) ==================== -->
+    <div class="albums-section">
+        <div class="container">
+            <div class="album-wrapper">
+                <div class="albums-header">
+                    <h2 class="albums-title">
+                        آلبوم <span>سفرها</span>
+                    </h2>
+                    <p class="albums-subtitle">
+                        لحظات ناب سفر با آمادای گشت را در قاب تصاویر ببینید
+                    </p>
+                </div>
+
+                <div class="albums-slider-container">
+                    <div class="swiper-ab albumsSwiper">
+                        <div class="swiper-wrapper" id="albumsSwiperWrapper">
+                            <!-- آلبوم‌ها توسط js داینامیک ساخته می‌شوند -->
+                        </div>
+                        <div class="swiper-pagination albums-pagination"></div>
+                    </div>
+
+                    <!-- دکمه‌های ناوبری -->
+                    <div class="albums-nav">
+                        <div class="album-prev"><i class="fas fa-chevron-right"></i></div>
+                        <div class="album-next"><i class="fas fa-chevron-left"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ==================== بخش دانستنی و ملزومات سفر ==================== -->
+    <div class="travel-tips-section">
+        <div class="container">
+            <div class="travel-tips_wrapper">
+                <!-- هدر بخش -->
+                <div class="travel-tips-header">
+                    <h2 class="travel-tips-title">
+                        دانستنی و <span>ملزومات سفر</span>
+                    </h2>
+                    <p class="travel-tips-subtitle">
+                        هر آنچه برای یک سفر بی‌دغدغه و خاطره‌انگیز باید بدانید
+                    </p>
+                </div>
+
+                <!-- دکمه‌های تب -->
+                <div class="travel-tips-tabs">
+                    <button class="tips-tab-btn active" data-tab="solo">
+                        <i class="fas fa-user"></i> انفرادی
+                    </button>
+                    <button class="tips-tab-btn" data-tab="nature">
+                        <i class="fas fa-tree"></i> طبیعت گردی
+                    </button>
+                    <button class="tips-tab-btn" data-tab="camping">
+                        <i class="fas fa-campground"></i> کمپینگ
+                    </button>
+                    <button class="tips-tab-btn" data-tab="offroad">
+                        <i class="fas fa-car"></i> آفرودی
+                    </button>
+                    <button class="tips-tab-btn" data-tab="air">
+                        <i class="fas fa-plane"></i> سفرهای هوایی
+                    </button>
+                </div>
+
+                <!-- محتوای تب‌ها -->
+                <div class="travel-tips-content">
+
+                    <!-- تب انفرادی -->
+                    <div class="tips-content-item active" data-content="solo">
+                        <div class="tips-content-grid">
+                            <div class="tips-text">
+                                <h3><i class="fas fa-user-astronaut"></i> نکات طلایی سفر انفرادی</h3>
+                                <ul class="tips-list">
+                                    <li><i class="fas fa-check-circle"></i> برنامه‌ریزی دقیق و اطلاع دادن به خانواده از
+                                        مسیر
+                                        سفر</li>
+                                    <li><i class="fas fa-check-circle"></i> همراه داشتن شارژر همراه (پاوربانک) و کابل
+                                        اضافی
+                                    </li>
+                                    <li><i class="fas fa-check-circle"></i> انتخاب اقامتگاه‌های امن با نظرات مثبت</li>
+                                    <li><i class="fas fa-check-circle"></i> همراه داشتن مدارک شناسایی و کارت بیمه</li>
+                                    <li><i class="fas fa-check-circle"></i> نصب اپلیکیشن‌های آفلاین نقشه و مسیریابی</li>
+                                </ul>
+                            </div>
+                            <div class="tips-visual">
+                                <i class="fas fa-user-check visual-icon-tips"></i>
+                                <div class="tips-visual-title">سفر انفرادی</div>
+                                <div class="tips-visual-desc">آزادی، آرامش و کشف خود</div>
+                                <div class="tips-badge-group">
+                                    <span class="tips-badge"><i class="fas fa-shield-alt"></i> ایمنی اولویت اول</span>
+                                    <span class="tips-badge"><i class="fas fa-route"></i> برنامه دقیق</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- تب طبیعت گردی -->
+                    <div class="tips-content-item" data-content="nature">
+                        <div class="tips-content-grid">
+                            <div class="tips-text">
+                                <h3><i class="fas fa-hiking"></i> ملزومات سفر طبیعت گردی</h3>
+                                <ul class="tips-list">
+                                    <li><i class="fas fa-check-circle"></i> کفش مناسب کوهپیمایی و لباس گرم و ضدآب</li>
+                                    <li><i class="fas fa-check-circle"></i> کوله‌پشتی استاندارد با کمربند حمایتی</li>
+                                    <li><i class="fas fa-check-circle"></i> آب کافی و مواد غذایی پرانرژی (آجیل، خرما،
+                                        شکلات)
+                                    </li>
+                                    <li><i class="fas fa-check-circle"></i> جعبه کمک‌های اولیه و ضدآفتاب</li>
+                                    <li><i class="fas fa-check-circle"></i> قطبنما، نقشه مسیر و چراغ پیشانی</li>
+                                </ul>
+                            </div>
+                            <div class="tips-visual">
+                                <i class="fas fa-mountain visual-icon-tips"></i>
+                                <div class="tips-visual-title">طبیعت گردی</div>
+                                <div class="tips-visual-desc">همراه با طبیعت، آرامش را تجربه کنید</div>
+                                <div class="tips-badge-group">
+                                    <span class="tips-badge"><i class="fas fa-hiking"></i> تجهیزات کامل</span>
+                                    <span class="tips-badge"><i class="fas fa-leaf"></i> حفظ محیط زیست</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- تب کمپینگ -->
+                    <div class="tips-content-item" data-content="camping">
+                        <div class="tips-content-grid">
+                            <div class="tips-text">
+                                <h3><i class="fas fa-fire"></i> ملزومات سفر کمپینگ</h3>
+                                <ul class="tips-list">
+                                    <li><i class="fas fa-check-circle"></i> چادر مقاوم در برابر باد و باران</li>
+                                    <li><i class="fas fa-check-circle"></i> کیسه خواب مناسب فصل و زیرانداز عایق</li>
+                                    <li><i class="fas fa-check-circle"></i> اجاق گاز مسافرتی و سوخت کافی</li>
+                                    <li><i class="fas fa-check-circle"></i> چراغ قوه قدرتمند و فندک/کبریت</li>
+                                    <li><i class="fas fa-check-circle"></i> غذای آماده و آب آشامیدنی کافی</li>
+                                </ul>
+                            </div>
+                            <div class="tips-visual">
+                                <i class="fas fa-campground visual-icon-tips"></i>
+                                <div class="tips-visual-title">کمپینگ</div>
+                                <div class="tips-visual-desc">شب نشینی زیر ستاره‌ها</div>
+                                <div class="tips-badge-group">
+                                    <span class="tips-badge"><i class="fas fa-tent"></i> تجهیزات استاندارد</span>
+                                    <span class="tips-badge"><i class="fas fa-moon"></i> ایمنی شب</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- تب آفرودی -->
+                    <div class="tips-content-item" data-content="offroad">
+                        <div class="tips-content-grid">
+                            <div class="tips-text">
+                                <h3><i class="fas fa-tachometer-alt"></i> ملزومات سفر آفرودی</h3>
+                                <ul class="tips-list">
+                                    <li><i class="fas fa-check-circle"></i> خودروی مناسب و بازدید فنی قبل از سفر</li>
+                                    <li><i class="fas fa-check-circle"></i> تجهیزات اضطراری (تایر زاپاس، جک، طناب
+                                        یدک‌کش)
+                                    </li>
+                                    <li><i class="fas fa-check-circle"></i> دستگاه GPS آفرود و نقشه‌های آفلاین</li>
+                                    <li><i class="fas fa-check-circle"></i> آب و غذای اضافی برای ۳ روز بیشتر</li>
+                                    <li><i class="fas fa-check-circle"></i> کیت تعمیرات اولیه و بیل تاشو</li>
+                                </ul>
+                            </div>
+                            <div class="tips-visual">
+                                <i class="fas fa-truck-monster visual-icon-tips"></i>
+                                <div class="tips-visual-title">سفر آفرودی</div>
+                                <div class="tips-visual-desc">ماجراجویی در دل طبیعت</div>
+                                <div class="tips-badge-group">
+                                    <span class="tips-badge"><i class="fas fa-wrench"></i> آمادگی فنی</span>
+                                    <span class="tips-badge"><i class="fas fa-road"></i> مسیرشناسی</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- تب سفر هوایی -->
+                    <div class="tips-content-item" data-content="air">
+                        <div class="tips-content-grid">
+                            <div class="tips-text">
+                                <h3><i class="fas fa-plane-departure"></i> نکات طلایی سفر هوایی</h3>
+                                <ul class="tips-list">
+                                    <li><i class="fas fa-check-circle"></i> رزرو بلیط و هتل حداقل ۲ ماه قبل برای قیمت
+                                        بهتر
+                                    </li>
+                                    <li><i class="fas fa-check-circle"></i> همراه داشتن مدارک هویتی و ویزا (در صورت
+                                        نیاز)
+                                    </li>
+                                    <li><i class="fas fa-check-circle"></i> چمدان استاندارد با رعایت وزن مجاز خط هوایی
+                                    </li>
+                                    <li><i class="fas fa-check-circle"></i> داروهای ضروری و لوازم شخصی در چمدان دستی
+                                    </li>
+                                    <li><i class="fas fa-check-circle"></i> استفاده از هدفون حذف نویز برای پروازهای
+                                        طولانی
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tips-visual">
+                                <i class="fas fa-fly visual-icon-tips"></i>
+                                <div class="tips-visual-title">سفر هوایی</div>
+                                <div class="tips-visual-desc">پروازی راحت و خاطره‌انگیز</div>
+                                <div class="tips-badge-group">
+                                    <span class="tips-badge"><i class="fas fa-passport"></i> مدارک کامل</span>
+                                    <span class="tips-badge"><i class="fas fa-suitcase"></i> بسته‌بندی هوشمند</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ==================== بخش پشتیبانی و تماس ==================== -->
+    <div class="support-section">
+        <div class="container">
+            <div class="support-wrapper">
+                <!-- سمت راست - تصویر و متن انگیزشی -->
+                <div class="support-info">
+                    <div class="support-badge">
+                        <i class="fas fa-headset"></i> پشتیبانی ۲۴/۷
+                    </div>
+                    <h2 class="support-title">
+                        سوالاتی دارید؟<br>
+                        <span>ما پاسخ‌هایی داریم</span>
+                    </h2>
+                    <p class="support-desc">
+                        تیم پشتیبانی آمادای گشت ۲۴ ساعته، ۷ روز هفته آماده پاسخگویی به سوالات و راهنمایی شماست.
+                        کافیست فرم زیر را تکمیل کنید تا کارشناسان ما در اسرع وقت با شما تماس بگیرند.
+                    </p>
+                    <div class="support-features">
+                        <div class="support-feature">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>پاسخگویی سریع</h4>
+                                <p>کمتر از ۲۴ ساعت</p>
+                            </div>
+                        </div>
+                        <div class="support-feature">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4>تماس تلفنی</h4>
+                                <p>مشاوره رایگان</p>
+                            </div>
+                        </div>
+                        <div class="support-feature">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <h4>پشتیبانی واتساپ</h4>
+                                <p>۰۹۰۰۰۰۰۰۰۰۰</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- سمت چپ - فرم تماس -->
+                <div class="support-form-wrapper">
+                    <div class="form-header">
+                        <i class="fas fa-paper-plane"></i>
+                        <h3>درخواست مشاوره و راهنمایی</h3>
+                        <p>لطفاً اطلاعات خود را وارد کنید، کارشناسان ما با شما تماس می‌گیرند</p>
+                    </div>
+
+                    <form class="support-form" id="supportForm">
+                        <div class="form-group">
+                            <div class="input-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <input type="text" id="fullName" name="fullName" placeholder="نام و نام خانوادگی" required>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="شماره تماس" required>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-icon">
+                                <i class="fas fa-pen"></i>
+                            </div>
+                            <textarea id="message" name="message" rows="4"
+                                placeholder="توضیحات خود را بنویسید..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> ارسال درخواست
+                        </button>
+                    </form>
+
+                    <div class="form-footer">
+                        <p><i class="fas fa-lock"></i> اطلاعات شما نزد ما محفوظ است</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ==================== بخش مقاصد گردشگری (کجا بریم) ==================== -->
+    <div class="destinations-section">
+        <div class="container">
+            <div class="album-wrapper">
+                <div class="destinations-header">
+                    <h2 class="destinations-title">
+                        کجا بریم؟ <span>مقاصد پیشنهادی</span>
+                    </h2>
+                    <p class="destinations-subtitle">
+                        بهترین جاهایی که می‌توانید با آمادای گشت تجربه کنید
+                    </p>
+                </div>
+
+                <div class="dest-slider-container">
+                    <div class="swiper destSwiper">
+                        <div class="swiper-wrapper" id="destinationsSwiperWrapper">
+                            <!-- مقاصد توسط js داینامیک ساخته می‌شوند -->
+                        </div>
+                        <div class="swiper-pagination dest-pagination"></div>
+                    </div>
+
+                    <!-- دکمه‌های ناوبری -->
+                    <div class="dest-nav">
+                        <div class="dest-btn-prev"><i class="fas fa-chevron-right"></i></div>
+                        <div class="dest-btn-next"><i class="fas fa-chevron-left"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ==================== بخش تور اختصاصی ==================== -->
+    <div class="custom-tour-section">
+        <div class="container">
+            <div class="custom-tour-wrapper">
+                <!-- سمت راست - متن توضیحی -->
+                <div class="custom-tour-info">
+                    <div class="custom-tour-badge">
+                        <i class="fas fa-star"></i> تور اختصاصی
+                    </div>
+                    <h2 class="custom-tour-title">
+                        تور <span>شخصی‌سازی شده</span>
+                    </h2>
+                    <p class="custom-tour-desc">
+                        چه یک نفر باشید، چه هزار نفر، ما توری را دقیقاً مطابق با سلیقه و نیاز شما طراحی می‌کنیم.
+                        فرم زیر را تکمیل کنید تا کارشناسان ما در اسرع وقت با شما تماس بگیرند.
+                    </p>
+                    <div class="custom-tour-features">
+                        <div class="custom-feature">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>برنامه‌ریزی انعطاف‌پذیر</h4>
+                                <p>طبق زمان دلخواه شما</p>
+                            </div>
+                        </div>
+                        <div class="custom-feature">
+                            <i class="fas fa-route"></i>
+                            <div>
+                                <h4>مسیر دلخواه شما</h4>
+                                <p>هر مقصدی که دوست دارید</p>
+                            </div>
+                        </div>
+                        <div class="custom-feature">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h4>هر تعداد نفر</h4>
+                                <p>از ۱ تا ۱۰۰۰ نفر</p>
+                            </div>
+                        </div>
+                        <div class="custom-feature">
+                            <i class="fas fa-gem"></i>
+                            <div>
+                                <h4>خدمات VIP</h4>
+                                <p>با بالاترین کیفیت</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- سمت چپ - فرم تور اختصاصی -->
+                <div class="custom-tour-form-wrapper">
+                    <div class="form-header-custom">
+                        <i class="fas fa-pen-ruler"></i>
+                        <h3>درخواست تور اختصاصی</h3>
+                        <p>اطلاعات خود را وارد کنید تا بهترین پیشنهاد را دریافت کنید</p>
+                    </div>
+
+                    <form class="custom-tour-form" id="customTourForm">
+                        <div class="form-row">
+                            <div class="form-group-custom">
+                                <div class="input-icon-custom">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <input type="text" id="tourFullName" name="fullName" placeholder="نام و نام خانوادگی"
+                                    required>
+                            </div>
+
+                            <div class="form-group-custom">
+                                <div class="input-icon-custom">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <input type="tel" id="tourPhone" name="phone" placeholder="شماره تماس" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group-custom">
+                                <div class="input-icon-custom">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                <input type="text" id="tourStartDate" name="startDate" placeholder="تاریخ شروع سفر"
+                                    readonly>
+                                <button type="button" class="datepicker-btn" onclick="openDatepicker('start')">
+                                    <i class="fas fa-calendar-day"></i>
+                                </button>
+                            </div>
+
+                            <div class="form-group-custom">
+                                <div class="input-icon-custom">
+                                    <i class="fas fa-calendar-check"></i>
+                                </div>
+                                <input type="text" id="tourEndDate" name="endDate" placeholder="تاریخ پایان سفر"
+                                    readonly>
+                                <button type="button" class="datepicker-btn" onclick="openDatepicker('end')">
+                                    <i class="fas fa-calendar-day"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group-custom">
+                                <div class="input-icon-custom">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <input type="text" id="tourDestination" name="destination" placeholder="مقصد سفر">
+                            </div>
+
+                            <div class="form-group-custom">
+                                <div class="input-icon-custom">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <input type="number" id="tourDays" name="days" placeholder="تعداد روز سفر" min="1">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group-custom">
+                                <div class="input-icon-custom">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <input type="number" id="tourPersons" name="persons" placeholder="تعداد نفرات" min="1">
+                            </div>
+
+                            <div class="form-group-custom">
+                                <div class="input-icon-custom">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                </div>
+                                <input type="text" id="tourBudget" name="budget" placeholder="بودجه تقریبی (اختیاری)">
+                            </div>
+                        </div>
+
+                        <div class="form-group-custom full-width">
+                            <div class="input-icon-custom">
+                                <i class="fas fa-pen"></i>
+                            </div>
+                            <textarea id="tourMessage" name="message" rows="4"
+                                placeholder="توضیحات بیشتر (نوع اقامت، امکانات مورد نیاز، علایق خاص و...)"></textarea>
+                        </div>
+
+                        <button type="submit" class="custom-submit-btn">
+                            <i class="fas fa-paper-plane"></i> ارسال درخواست تور اختصاصی
+                        </button>
+                    </form>
+
+                    <div class="form-footer-custom">
+                        <p><i class="fas fa-lock"></i> اطلاعات شما نزد ما محفوظ است</p>
+                        <p><i class="fas fa-headset"></i> کارشناسان ما ظرف ۲۴ ساعت با شما تماس می‌گیرند</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- مودال تقویم شمسی برای تور اختصاصی -->
+    <div class="datepicker-modal" id="datepickerModal">
+        <div class="datepicker-modal-content">
+            <div class="datepicker-modal-header">
+                <h3 id="datepickerTitle">انتخاب تاریخ</h3>
+                <button class="datepicker-close" onclick="closeDatepicker()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="datepicker-body">
+                <div class="datepicker-header">
+                    <button class="datepicker-nav" id="datepickerPrev"><i class="fas fa-chevron-right"></i></button>
+                    <div class="datepicker-month-year" id="datepickerMonthYear"></div>
+                    <button class="datepicker-nav" id="datepickerNext"><i class="fas fa-chevron-left"></i></button>
+                </div>
+                <div class="datepicker-weekdays">
+                    <span>ش</span><span>ی</span><span>د</span><span>س</span><span>چ</span><span>پ</span><span>ج</span>
+                </div>
+                <div class="datepicker-days" id="datepickerDays"></div>
+            </div>
+            <div class="datepicker-footer">
+                <button class="datepicker-confirm" onclick="confirmDateSelection()">تایید</button>
+                <button class="datepicker-cancel" onclick="closeDatepicker()">انصراف</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== فوتر سایت ==================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- ستون اول - برند و توضیحات -->
+                <div class="footer-col">
+                    <div class="footer-brand">
+                        <i class="fas fa-compass"></i>
+                        <span>آمادای گشت</span>
+                    </div>
+                    <p class="footer-description">
+                        آمادای گشت، همراه مطمئن شما در سفرهای لوکس و خاطره‌انگیز.
+                        با تیمی حرفه‌ای و مجرب، بهترین تجربه سفر را برای شما رقم می‌زنیم.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="اینستاگرام"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="تلگرام"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-link" aria-label="واتساپ"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link" aria-label="لینکدین"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- ستون دوم - لینک‌های مفید -->
+                <div class="footer-col">
+                    <h4 class="footer-title">لینک‌های مفید</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html"><i class="fas fa-chevron-left"></i> درباره ما</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-left"></i> تماس با ما</a></li>
+                        <li><a href="blog.html"><i class="fas fa-chevron-left"></i> وبلاگ</a></li>
+                        <li><a href="app.html"><i class="fas fa-chevron-left"></i> اطلاعیه</a></li>
+                        <li><a href="app.html"><i class="fas fa-chevron-left"></i> سفرها</a></li>
+                    </ul>
+                </div>
+
+                <!-- ستون سوم - اطلاعات تماس -->
+                <div class="footer-col">
+                    <h4 class="footer-title">اطلاعات تماس</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> تهران، خیابان ولیعصر، پلاک ۱۲۳</li>
+                        <li><i class="fas fa-phone-alt"></i> ۰۲۱-۱۲۳۴۵۶۷۸</li>
+                        <li><i class="fas fa-mobile-alt"></i> ۰۹۰۰۰۰۰۰۰۰۰</li>
+                        <li><i class="fas fa-envelope"></i> info@amadaygasht.com</li>
+                    </ul>
+                </div>
+
+                <!-- ستون چهارم - ساعت کاری -->
+                <div class="footer-col">
+                    <h4 class="footer-title">ساعت کاری</h4>
+                    <ul class="footer-hours">
+                        <li><span>شنبه تا چهارشنبه:</span><span>۹:۰۰ - ۱۸:۰۰</span></li>
+                        <li><span>پنجشنبه:</span><span>۹:۰۰ - ۱۴:۰۰</span></li>
+                        <li><span>جمعه:</span><span>تعطیل</span></li>
+                    </ul>
+                    <div class="footer-badge">
+                        <i class="fas fa-headset"></i> پشتیبانی ۲۴/۷
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p><i class="far fa-copyright"></i> ۱۴۰۵ تمامی حقوق برای <strong>آمادای گشت</strong> محفوظ است.</p>
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="#">قوانین و مقررات</a>
+                    <a href="#">حریم خصوصی</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/click-animation.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
